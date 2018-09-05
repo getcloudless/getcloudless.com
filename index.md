@@ -12,5 +12,5 @@ introduction: |
     thing that is transparent to users, yet still be powerful and flexible
     enough that no one has to rearchitect their system to use it.
 ---
-## Subscribe for Updates
+## Subscribe for Updates!
 {% include signup.html %}
