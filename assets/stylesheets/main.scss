@@ -1,0 +1,246 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset 'utf-8';
+
+// Theme skin
+@import 'basically-basic/themes/{{ site.data.theme.skin | default: "default" }}';
+
+@import 'basically-basic';
+
+.site-logo {
+  border-radius: 10%;
+}
+
+.intro-image {
+  margin-bottom: 2rem;
+}
+
+@media print, screen and (max-width: 720px) {
+  .intro-image {
+    margin-bottom: 1rem;
+    margin-top: -4rem;
+    position: relative;
+    width: 200%;
+  }
+}
+
+@media print, screen and (max-width: 1024px) {
+  .intro-image {
+    margin-bottom: 1rem;
+    margin-top: -4rem;
+    position: relative;
+    width: 150%;
+  }
+}
+
+.intro-title {
+  @include fluid-type($min-vw, $max-vw, 26px, 70px);
+}
+
+.intro {
+  padding-bottom: .5rem;
+}
+
+// MailChimp Form Embed Code - Classic - 12/17/2015 v10.7
+// Disable a bunch of lint checks, because I copied this from mailchimp
+// sass-lint:disable property-sort-order,no-ids,force-element-nesting
+// sass-lint:disable no-vendor-prefixes
+// sass-lint:disable hex-notation,attribute-quotes,no-color-literals
+// sass-lint:disable hex-length,single-line-per-selector,force-attribute-nesting
+// sass-lint:disable force-pseudo-nesting,zero-unit,no-qualifying-elements
+// sass-lint:disable class-name-format,leading-zero,border-zero
+// sass-lint:disable shorthand-values,no-transition-all
+#mc_embed_signup form {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding: 0 0 50px 0;
+}
+
+#mc_embed_signup input {
+  border:  1px solid #ABB0B2;
+  -webkit-border-radius:  3px;
+  -moz-border-radius:  3px;
+  border-radius:  3px;
+}
+
+#mc_embed_signup input:focus {
+  border-color: #333;
+}
+
+#mc_embed_signup .button {
+  clear: both;
+  background-color:  #000;
+  border:  0 none;
+  border-radius: 4px;
+  transition:  all 0.23s ease-in-out 0s;
+  color:  #FFFFFF;
+  cursor:  pointer;
+  display:  inline-block;
+  font-size: 20px;
+  font-weight:  normal;
+  height:  32px;
+  line-height:  32px;
+  margin:  0 5px 10px 0;
+  padding:  0 22px;
+  text-align:  center;
+  text-decoration:  none;
+  vertical-align:  top;
+  white-space:  nowrap;
+  width:  auto;
+}
+
+#mc_embed_signup .button:hover {
+  background-color: #666;
+}
+
+#mc_embed_signup .small-meta {
+  font-size:  11px;
+}
+
+#mc_embed_signup .nowrap {
+  white-space: nowrap;
+}
+
+#mc_embed_signup .mc-field-group {
+  clear: left;
+  position: relative;
+  width: 96%;
+  padding-bottom: 0;
+  min-height: 50px;
+}
+
+#mc_embed_signup .size1of2 {
+  clear: none;
+  float: left;
+  display: inline-block;
+  width: 46%;
+  margin-right: 4%;
+}
+
+* html #mc_embed_signup .size1of2 {
+  margin-right: 2%;
+  // Fix for IE6 double margins.
+}
+
+#mc_embed_signup .mc-field-group label {
+  display: block;
+  margin-bottom: 3px;
+}
+
+#mc_embed_signup .mc-field-group input {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-indent: 2%;
+}
+
+#mc_embed_signup .mc-field-group select {
+  display: inline-block;
+  width: 99%;
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+
+#mc_embed_signup .clear {
+  clear: both;
+}
+
+#mc_embed_signup .mc-field-group.input-group ul {
+  margin: 0;
+  padding: 5px 0;
+  list-style: none;
+}
+
+#mc_embed_signup .mc-field-group.input-group ul li {
+  display: block;
+  padding: 3px 0;
+  margin: 0;
+}
+
+#mc_embed_signup .mc-field-group.input-group label {
+  display: inline;
+}
+
+#mc_embed_signup .mc-field-group.input-group input {
+  display: inline;
+  width: auto;
+  border: none;
+}
+
+#mc_embed_signup div#mce-responses {
+  float: left;
+  top: -1.4em;
+  padding: 0 .5em 0em .5em;
+  overflow: hidden;
+  width: 90%;
+  margin:  0 5%;
+  clear:  both;
+}
+
+#mc_embed_signup div.response {
+  margin: 1em 0;
+  padding: 0 .5em .5em 0;
+  font-weight: bold;
+  float: left;
+  top: -1.5em;
+  z-index: 1;
+  width: 80%;
+}
+
+#mc_embed_signup #mce-error-response {
+  display: none;
+}
+
+#mc_embed_signup #mce-success-response {
+  color: #529214;
+  display: none;
+}
+
+#mc_embed_signup label.error {
+  display: block;
+  float: none;
+  width: auto;
+  margin-left: 1.05em;
+  text-align: left;
+  padding: .5em 0;
+}
+
+#mc-embedded-subscribe {
+  clear: both;
+  width: auto;
+  display: block;
+  margin: 1em 0 1em 5%;
+}
+
+#mc_embed_signup #num-subscribers {
+  font-size: 1.1em;
+}
+
+#mc_embed_signup #num-subscribers span {
+  padding: .5em;
+  border: 1px solid #ccc;
+  margin-right: .5em;
+  font-weight: bold;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
+  display: inline-block;
+  margin: 2px 0 1em 0;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-border-radius:  3px;
+  -moz-border-radius:  3px;
+  border-radius:  3px;
+  font-size: 14px;
+  font-weight: normal;
+  z-index: 1;
+  color: #e85c41;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
+  border: 2px solid #e85c41;
+}
+
