@@ -5,12 +5,6 @@ date:   2018-09-05 15:30:00 -0400
 categories: cloudless introduction
 image: "/assets/images/turing-tape-header.svg"
 ---
-Note that as of this writing Cloudless is still in active development, so please
-don't use it for production yet!  If you have questions or interesting feature
-ideas, please [file an issue](https://github.com/getcloudless/cloudless/issues).
-
-## What is this?
-
 Cloudless is a tool designed to make it easy for people to build production
 ready infrastructure without having to:
 
@@ -81,7 +75,9 @@ Repository](https://github.com/getcloudless/cloudless).  From there you can find
 usage and getting started instructions, or just follow that repository to stay
 up to date on development.  Contributions are welcome!
 
-Since Cloudless is still under active development, don't use it for production
-yet.  If you have questions or feature ideas, please [file an
-issue](https://github.com/getcloudless/cloudless/issues) or send an email to
+Note that as of this writing Cloudless is still under active development, so if
+you have any problems or feature requests, please [file an
+issue](https://github.com/getcloudless/cloudless/issues).
+
+For more information, email
 [info@getcloudless.com](mailto:info@getcloudless.com).
