@@ -17,3 +17,15 @@ to stay up to date on current development.
 
 Finally, send an email to [info@getcloudless.com](info@getcloudless.com) or
 [subscribe](/#subscribe-for-updates) to stay in touch.
+
+## About Me
+
+![sverch in san francisco bio picture](/assets/images/sverch.jpg)
+
+Hi I'm sverch!
+
+I'm a Site Reliability Engineer who has worked in a wide range of places, from a
+15 person startup to the world's largest employer.  You can check out my current
+resume at [https://shaunverch.com](https://shaunverch.com).  I'm passionate
+about open source and making it harder for humans to make harmful mistakes in
+software.

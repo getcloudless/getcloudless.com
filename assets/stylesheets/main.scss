@@ -43,6 +43,13 @@
   padding-bottom: .5rem;
 }
 
+// sass-lint:disable force-attribute-nesting,no-qualifying-elements
+img[alt='sverch in san francisco bio picture'] {
+  float: left;
+  padding: 0 3%;
+  width: 30%;
+}
+
 // MailChimp Form Embed Code - Classic - 12/17/2015 v10.7
 // Disable a bunch of lint checks, because I copied this from mailchimp
 // sass-lint:disable property-sort-order,no-ids,force-element-nesting
