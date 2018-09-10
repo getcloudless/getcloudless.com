@@ -2,7 +2,6 @@
 layout: page
 title: About Cloudless
 permalink: /about/
-image: "/assets/images/turing-tape-header.svg"
 ---
 Cloudless is a tool for interacting with cloud services in a straightforward,
 but still powerful way.  It's intended for teams that want to deploy their own

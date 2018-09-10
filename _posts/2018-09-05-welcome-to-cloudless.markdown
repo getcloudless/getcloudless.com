@@ -3,7 +3,6 @@ layout: post
 title:  "Welcome to Cloudless!"
 date:   2018-09-05 15:30:00 -0400
 categories: cloudless introduction
-image: "/assets/images/turing-tape-header.svg"
 ---
 Cloudless is a tool designed to make it easy for people to build production
 ready infrastructure without having to:

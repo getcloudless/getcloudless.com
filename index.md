@@ -3,9 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-title: "cloudless"
+title: "Cloudless"
 sub_title: "Humans shouldn't have to think about this"
-image: "/assets/images/turing-tape-header.svg"
 introduction: |
     Cloudless is a tool to abstract away many of the details that make working
     with the cloud slow, frustrating, and error prone.  It aims to do the right

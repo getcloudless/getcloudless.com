@@ -13,34 +13,38 @@
   border-radius: 10%;
 }
 
-.intro-image {
-  margin-bottom: 2rem;
-}
-
-@media print, screen and (max-width: 720px) {
-  .intro-image {
-    margin-bottom: 1rem;
-    margin-top: -4rem;
-    position: relative;
-    width: 200%;
-  }
-}
-
-@media print, screen and (max-width: 1024px) {
-  .intro-image {
-    margin-bottom: 1rem;
-    margin-top: -4rem;
-    position: relative;
-    width: 150%;
-  }
-}
-
-.intro-title {
-  @include fluid-type($min-vw, $max-vw, 26px, 70px);
-}
-
 .intro {
-  padding-bottom: .5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0;
+  padding-top: 0;
+
+  .inner {
+    margin-bottom: -.5rem;
+  }
+
+  .intro-title {
+    @include fluid-type($min-vw, $max-vw, 26px, 70px);
+    margin-bottom: 0;
+  }
+
+  .intro-subtitle {
+    margin-bottom: 1.5rem;
+  }
+}
+
+$inner-div-topbar: #000;
+$calendar-icon: #000;
+
+.initial-content {
+  border-color: $inner-div-topbar;
+  border-style: solid;
+  border-width: 5px 0 0;
+}
+
+.entry-meta {
+  .icon {
+    fill: $calendar-icon;
+  }
 }
 
 // sass-lint:disable force-attribute-nesting,no-qualifying-elements
