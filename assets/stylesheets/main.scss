@@ -35,10 +35,19 @@
 $inner-div-topbar: #000;
 $calendar-icon: #000;
 $masthead-shadow-color: #888;
+$main-background: #f9f9f9;
+$masthead-background: #f5f5f5;
+
+.sidebar-toggle-wrapper {
+  background-color: transparent;
+}
 
 .wrapper {
+  background-color: $main-background;
+
   // sass-lint:disable no-ids
   #masthead {
+    background-color: $masthead-background;
     border-color: $inner-div-topbar;
     border-style: solid;
     border-width: 0 0 5px;
