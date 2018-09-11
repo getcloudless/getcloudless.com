@@ -1,8 +1,10 @@
 ---
 layout: page
-title: About Cloudless
+title: About
 permalink: /about/
 ---
+## Cloudless
+
 Cloudless is a tool for interacting with cloud services in a straightforward,
 but still powerful way.  It's intended for teams that want to deploy their own
 services, but still don't want to have to go through the pain of setting

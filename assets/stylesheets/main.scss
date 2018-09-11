@@ -38,12 +38,16 @@ $masthead-shadow-color: #888;
 $main-background: #f9f9f9;
 $masthead-background: #f5f5f5;
 
+body {
+  background-color: $main-background;
+}
+
 .sidebar-toggle-wrapper {
   background-color: transparent;
 }
 
 .wrapper {
-  background-color: $main-background;
+  background-color: transparent;
 
   // sass-lint:disable no-ids
   #masthead {
