@@ -21,7 +21,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   thing that is transparent to users, yet still be powerful and flexible enough
   that no one has to rearchitect their system to use it.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://getcloudless.com" # the base hostname & protocol for your site, e.g. http://example.com
+docs_url: "https://docs.getcloudless.com"
 github_username:  "getcloudless/cloudless"
 logo: "/assets/images/cloudless-logo-nobackground.svg"
 copyright: "&copy; 2018 Shaun Verch."
