@@ -120,6 +120,11 @@ These examples assume you either are using the "default" profile or have set the
 in the profile.  If everything is set up properly and you haven't created
 networks without Cloudless you should see nothing, or an empty list.
 
+In all of the following examples, when the commands take a configuration file as
+an argument, we are using the example configuration in
+[https://github.com/getcloudless/cloudless/tree/master/example-blueprints](https://github.com/getcloudless/cloudless/tree/master/example-blueprints).
+So if you're following along you should clone that repo locally first.
+
 Now, let's create a network.  To create a network named "dev", run:
 
 ```shell
