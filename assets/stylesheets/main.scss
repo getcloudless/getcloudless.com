@@ -20,6 +20,7 @@
 
   .inner {
     margin-bottom: -.5rem;
+    max-width: unset;
   }
 
   .intro-title {
@@ -30,6 +31,12 @@
   .intro-subtitle {
     @include fluid-type($min-vw, $max-vw, 12px, 28px);
     margin-bottom: 1rem;
+  }
+}
+
+.page-content {
+  .inner {
+    max-width: unset;
   }
 }
 
