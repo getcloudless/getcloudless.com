@@ -4,10 +4,10 @@ title:  "Using The Cloudless Command Line"
 date:   2018-09-17 10:00:00 -0400
 categories: cloudless command line
 ---
-Up until now, the Cloudless has provided only a python API to interact with
-networks and services, but the current release now has a command line interface
-to make it easier to get started.  This post is a walkthrough of how to set up
-and use the command line interface.
+Up until now, Cloudless has provided only a python API to interact with networks
+and services, but the current release now has a command line interface to make
+it easier to get started.  This post is a walkthrough of how to set up and use
+the command line interface.
 
 As a warning, some of these steps don't fall into the free tiers of the
 respective cloud providers, so you might get charged.  If you're diligent about
@@ -37,7 +37,7 @@ for more help.
 
 ## Credentials and Profiles
 
-First, just like the python API, you need to up your credentials so that
+First, just like the python API, you need to set up your credentials so that
 Cloudless can authenticate with the cloud provider.  This setup is slightly
 different whether you're using Google Compute Engine or Amazon Web Services
 since they handle access differently.
