@@ -21,9 +21,11 @@ development.
 You can also send an email to [info@getcloudless.com](info@getcloudless.com) or
 [subscribe](/#subscribe-for-updates) to stay in touch.
 
-## About Me
+## The Team
 
 ![sverch in san francisco bio picture](/assets/images/sverch.jpg)
+
+**Shaun Verch (Founder and CEO)**
 
 Hi I'm Shaun (sverch)!
 

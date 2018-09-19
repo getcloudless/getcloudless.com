@@ -25,7 +25,7 @@ url: "https://getcloudless.com" # the base hostname & protocol for your site, e.
 docs_url: "https://docs.getcloudless.com"
 github_username:  "getcloudless/cloudless"
 logo: "/assets/images/cloudless-logo-nobackground.svg"
-copyright: "&copy; 2018 Shaun Verch."
+copyright: ""
 
 # Build settings
 markdown: kramdown
