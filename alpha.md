@@ -5,22 +5,28 @@ permalink: /alpha/
 ---
 ## Cloudless Alpha Program
 
-Read the [Welcome to Cloudless]({% post_url 2018-09-05-welcome-to-cloudless %})
-for a quick introduction of what Cloudless is about.  If you want to be an early
-adopter of Cloudless, you can join the Cloudless Alpha Program!  In the
-Cloudless Alpha Program, you will:
+[Welcome to Cloudless!]({% post_url 2018-09-05-welcome-to-cloudless %})
+Cloudless is the first platform for developing cloud agnostic infrastructure
+while giving you complete control right down to the Operating System level.
+Sign up for the Alpha Program below!
 
-- Get steeply discounted infrastructure consulting from a Site Reliability
-  Engineer with experience from across 10+ different organizations ranging from
-  fifteen to thousands of people.
-- Have a completely cloud independent infrastructure deployment.
-- Get personalized support for your development process.
-- Have influence on which Cloudless modules will be prioritized first based on
-  your use case.
-- Get early access to any new Cloudless features.
-- Know that you're helping prevent lock in by supporting a fully open source and
-  cross cloud deployment tool!
+#### About
 
-If you're interested, sign up below and we'll be in contact shortly!
+We have built production-scale infrastructure supporting millions of users in
+10+ different companies and organizations, from 15 person startups to projects
+that involve multiple teams and hundreds of people.
+
+As an early adopter of Cloudless, you will get:
+
+- A steep discount and preferential treatment on all aspects of the program.
+- An infrastructure setup that you can easily move between cloud providers, or
+  use across multiple cloud providers simultaneously.
+- An infrastructure that is highly personalized to your use case.
+- Highly available and individual support on anything in your deployment.
+- Influence on which Cloudless modules should be prioritized based on your
+  goals.
+- Early access to new Cloudless features.
+- Knowing that you're helping prevent vendor lock-in by supporting a fully open
+  source and cross cloud deployment tool!
 
 {% include alpha-signup.html %}
