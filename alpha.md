@@ -7,7 +7,7 @@ permalink: /alpha/
 
 Read the [Welcome to Cloudless]({% post_url 2018-09-05-welcome-to-cloudless %})
 for a quick introduction of what Cloudless is about.  If you want to be an early
-adopter of Cloudless, you can join the Cloudless Alpha Program.  In the
+adopter of Cloudless, you can join the Cloudless Alpha Program!  In the
 Cloudless Alpha Program, you will:
 
 - Get steeply discounted infrastructure consulting from a Site Reliability
