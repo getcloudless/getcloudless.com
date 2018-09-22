@@ -23,7 +23,7 @@ You can also send an email to [info@getcloudless.com](info@getcloudless.com) or
 
 ## The Team
 
-![sverch in san francisco bio picture](/assets/images/sverch.jpg)
+{% include bio-picture.html file="/assets/images/sverch.jpg" alt="sverch in san francisco bio picture" %}
 
 **Shaun Verch (Founder and CEO)**
 
@@ -36,3 +36,23 @@ harmful mistakes in software.  I'm passionate about open source and about making
 it easier for people to develop robust, cloud agnostic infrastructure solutions.
 Please [reach out](mailto:info@getcloudless.com) if you would like to join or
 contribute to Cloudless!
+
+{% include bio-picture.html
+   file="/assets/images/sswanke.jpg"
+   alt="Sarah Swanke by the ocean bio picture" %}
+
+**Sarah Swanke (Advisor)**
+
+Hi I'm Sarah (JankySwanky)!
+
+I'm a Product Manager and data nerd who's launched 3 successful products from
+the ground up, which are now currently used by ~6.75 million people. I'm good
+with data, teasing out user problems, and asking lots of questions. I joined
+Cloudless because I have a passion for open source and making it easier for
+people to build things that help other people.
+
+{% include bio-picture.html
+   file="/assets/images/jisaacso.jpg"
+   alt="Joe Isaacson headshot picture" %}
+
+**Joe Isaacson (Advisor)**
