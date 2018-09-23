@@ -56,3 +56,7 @@ people to build things that help other people.
    alt="Joe Isaacson headshot picture" %}
 
 **Joe Isaacson (Advisor)**
+
+Joe is the VP of Engineering at Asimov, a startup in Cambridge, MA that programs
+living cells to develop previously impossible biotechnologies.  Prior to Asimov,
+he managed machine learning teams at Quora and at URX (acquired by Pinterest).
