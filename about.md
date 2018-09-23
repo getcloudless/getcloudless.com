@@ -25,7 +25,7 @@ You can also send an email to [info@getcloudless.com](info@getcloudless.com) or
 
 {% include bio-picture.html file="/assets/images/sverch.jpg" alt="sverch in san francisco bio picture" %}
 
-**Shaun Verch (Founder and CEO)**
+**Shaun Verch (Founder)**
 
 Hi I'm Shaun (sverch)!
 
@@ -38,7 +38,7 @@ Please [reach out](mailto:info@getcloudless.com) if you would like to join or
 contribute to Cloudless!
 
 {% include bio-picture.html
-   file="/assets/images/sswanke.jpg"
+   file="/assets/images/sswanke-cropped.jpg"
    alt="Sarah Swanke by the ocean bio picture" %}
 
 **Sarah Swanke (Advisor)**
