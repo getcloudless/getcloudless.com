@@ -84,6 +84,20 @@ body {
   margin: 30px 0;
 }
 
+@media screen and (min-width: 768px) {
+  .initial-content {
+    max-width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .initial-content {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
 // MailChimp Form Embed Code - Classic - 12/17/2015 v10.7
 // Disable a bunch of lint checks, because I copied this from mailchimp
 // sass-lint:disable property-sort-order,no-ids,force-element-nesting
