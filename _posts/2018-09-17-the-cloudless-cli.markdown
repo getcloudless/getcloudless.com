@@ -122,8 +122,9 @@ networks without Cloudless you should see nothing, or an empty list.
 
 In all of the following examples, when the commands take a configuration file as
 an argument, we are using the example configuration in
-[https://github.com/getcloudless/cloudless/tree/master/example-blueprints](https://github.com/getcloudless/cloudless/tree/master/example-blueprints).
-So if you're following along you should clone that repo locally first.
+[https://github.com/getcloudless/cloudless/tree/v0.0.2/example-blueprints](https://github.com/getcloudless/cloudless/tree/v0.0.2/example-blueprints).
+So if you're following along you should clone that repo locally first and
+checkout the `v0.0.2` tag!
 
 Now, let's create a network.  To create a network named "dev", run:
 
