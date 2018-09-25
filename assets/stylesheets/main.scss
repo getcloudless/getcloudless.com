@@ -98,6 +98,12 @@ body {
   }
 }
 
+.language-shell {
+  pre {
+    white-space: pre-wrap;
+  }
+}
+
 // MailChimp Form Embed Code - Classic - 12/17/2015 v10.7
 // Disable a bunch of lint checks, because I copied this from mailchimp
 // sass-lint:disable property-sort-order,no-ids,force-element-nesting
