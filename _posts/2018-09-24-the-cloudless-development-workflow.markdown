@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Cloudless Development Workflow"
-date:   2018-09-24 23:59:00 -0400
+date:   2018-09-24 23:00:00 -0400
 categories: cloudless development modules
 ---
 From the [first blog post about the Cloudless command line]({% post_url
