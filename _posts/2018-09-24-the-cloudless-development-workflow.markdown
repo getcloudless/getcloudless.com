@@ -52,8 +52,19 @@ That's it!  Note that these example image build configuration files are prefixed
 by the backend provider.  This is because they use stock Ubuntu 16.04 images,
 which have different names in the different providers.
 
-Ok, we have our image build command, but what about the workflow to develop a
-new image?  Well, to deploy an instance that you want to iterate on, run:
+Now, to list the image you just created, run:
+
+```shell
+$ cldls image list
+Listing all images.
+Image Name: cloudless-example-base-image-v0
+Image Id: ami-0465dffd3ba77d840
+Image Created At: 2018-09-23T18:31:06.000Z
+```
+
+Ok, we have our image build command, and a subcommand to manage the images we've
+built, but what about the workflow to develop a new image?  Well, to deploy an
+instance that you want to iterate on, run:
 
 ```shell
 $ cldls image-build deploy examples/base-image/gce_image_build_configuration.yml
@@ -79,9 +90,10 @@ $ cldls image-build check examples/base-image/gce_image_build_configuration.yml
 
 This can do things like validate that your server got configured as expected.
 
-And there you have it!  Running the full build is the only way to save the image
-because it ensures as much as possible that the configure and check scripts are
-the source of truth for what's on the image.
+And there you have it!  The full build will do all the previous steps in order
+and then save the image.  Running the full build is the only way to save the
+image because it ensures as much as possible that the configure and check
+scripts are the source of truth for what's on the image.
 
 ## Testing Your Service
 
