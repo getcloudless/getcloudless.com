@@ -3,4 +3,5 @@ t:
 
 navigation_pages:
   - about.md
+  - modules.md
   - alpha.md
