@@ -1,13 +1,27 @@
-clusters:
+# Namespaces are groupings of modules, meant to group them by use case or by
+# modules that are known to work well together.  That doesn't necessarily mean
+# you can't mix and match, it's just meant to be descriptive.
+namespaces:
+
+# The name of the module.  When the user pulls the module, it will look like
+# <namespace>/<module>
 - name: examples
   description: |
     Cluster for example modules that are meant to demonstrate various concepts
     and should not be used in a real deployment.
   modules:
+
+  # This is an example of a module made for an image build.  All Cloudless
+  # modules have a blueprint, but this one also includes an image build
+  # configuration to build and save an image based on that blueprint.
   - name: "base-image"
     url: "https://github.com/getcloudless/example-base-image"
     image_build_configuration: "image_build_configuration.yml"
     description: "Example of how to build a base image with Cloudless."
+
+  # These are examples of modules made for service deployment.  All Cloudless
+  # modules have a blueprint, but this one also inclues a service test
+  # configuration to deploy a temporary test service and verify it works.
   - name: "apache"
     url: "https://github.com/getcloudless/example-apache"
     service_test_configuration: "service_test_configuration.yml"
