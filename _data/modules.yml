@@ -1,9 +1,21 @@
-- name: "example-base-image"
-  url: "https://github.com/getcloudless/example-base-image"
-  description: "Example of how to build a base image with cloudless."
-- name: "example-apache"
-  url: "https://github.com/getcloudless/example-apache"
-  description: "Example of how to deploy Apache with cloudless."
-- name: "example-haproxy"
-  url: "https://github.com/getcloudless/example-haproxy"
-  description: "Example of how to deploy Haproxy with cloudless."
+clusters:
+- name: examples
+  description: |
+    Cluster for example modules that are meant to demonstrate various concepts
+    and should not be used in a real deployment.
+  modules:
+  - name: "base-image"
+    url: "https://github.com/getcloudless/example-base-image"
+    image_build_configuration: "image_build_configuration.yml"
+    description: "Example of how to build a base image with Cloudless."
+  - name: "apache"
+    url: "https://github.com/getcloudless/example-apache"
+    service_test_configuration: "service_test_configuration.yml"
+    description: |
+      Example of how to deploy a simple Apache server with Cloudless.
+  - name: "haproxy"
+    url: "https://github.com/getcloudless/example-haproxy"
+    service_test_configuration: "service_test_configuration.yml"
+    description: |
+      Example of how to deploy a service requiring template variables (Haproxy)
+      with Cloudless.
