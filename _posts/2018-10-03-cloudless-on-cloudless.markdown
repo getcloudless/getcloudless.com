@@ -171,32 +171,21 @@ documentation on how to do this and how to find Hashicorp's keys.
 
 ```shell
 $ gpg --keyserver keys.gnupg.net --recv-key 0x51852D87348FFC4C
-gpg: requesting key 348FFC4C from hkp server keys.gnupg.net
+...
 gpg: key 348FFC4C: public key "HashiCorp Security <security@hashicorp.com>" imported
-gpg: no ultimately trusted keys found
-gpg: Total number processed: 1
-gpg:               imported: 1  (RSA: 1)
-$
-$ # Download the binary and signature files.
+...
 $ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_linux_amd64.zip
 $ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS
 $ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS.sig
-$
-$ # Verify the signature file is untampered.
 $ gpg --verify vault_0.11.2_SHA256SUMS.sig vault_0.11.2_SHA256SUMS
-gpg: Signature made Tue 02 Oct 2018 06:51:15 PM UTC using RSA key ID 348FFC4C
+...
 gpg: Good signature from "HashiCorp Security <security@hashicorp.com>"
-gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
+...
 Primary key fingerprint: 91A6 E7F8 5D05 C656 30BE  F189 5185 2D87 348F FC4C
-$
-$ # Verify the SHASUM matches the binary.
 $ shasum -a 256 -c vault_0.11.2_SHA256SUMS
 ...
 vault_0.11.2_linux_amd64.zip: OK
 ...
-$ gpg --fingerprint 0x51852D87348FFC4C | grep "91A6 E7F8 5D05 C656 30BE  F189 5185 2D87 348F FC4C"
-      Key fingerprint = 91A6 E7F8 5D05 C656 30BE  F189 5185 2D87 348F FC4C
 ```
 
 Now we can unzip the package and make sure it works!
