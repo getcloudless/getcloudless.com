@@ -390,7 +390,7 @@ typos, I can run this to remove my crufty test service:
 $ cldls service-test cleanup service_test_configuration.yml
 ```
 
-And run this to see if it's working:
+And run this to see if the startup script that I just wrote works:
 
 ```shell
 $ cldls service-test deploy service_test_configuration.yml
