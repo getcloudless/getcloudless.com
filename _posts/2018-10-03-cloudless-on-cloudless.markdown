@@ -28,9 +28,9 @@ easy to set up in a simple startup script.
 However, to make this more like a minimum production setup, the deployment of
 getcloudless.com will use https and have a simple monitoring setup.  This means
 that the web servers will need the API keys for the certificate renewal and
-monitoring, which are both sensitive.  As a result, the deployment will require
-two parts: a basic secrets server, and the web servers themselves that know how
-to pull secrets from this server.
+monitoring agent.  These are sensitive, so they shouldn't be hard coded in the
+startup script or built into the image.  As a result, the deployment will
+require two parts: a basic secrets server, and the web servers themselves.
 
 ### Secrets
 
