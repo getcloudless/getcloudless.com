@@ -14,6 +14,12 @@ case because getcloudless.com is a simple static site, but everything has to
 start somewhere and this will be a good way to show the "minimum viable"
 deployment.
 
+Cloudless is the only open source project I know of that can transparently work
+on multiple cloud providers without requiring you to use a whole opinionated
+framework or spin up a bunch of supplementary infrastructure.  That means once
+this work is done it should be reproducible on any of the providers Cloudless
+supports.
+
 This post is Part One of a two part setup, since the architecture (described
 below) has two separate components.
 
