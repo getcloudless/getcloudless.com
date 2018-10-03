@@ -46,14 +46,14 @@ in that post, [the Cloudless model]({% post_url
 logging in to set up machines, so the instances need some way to get their own
 secrets.
 
-For this, we will do a simple single node setup of [Hashicorp's
+For our secrets server, we will do a simple single node setup of [Hashicorp's
 Vault](https://www.vaultproject.io/), which will store the API keys that the web
 servers need on its local filesystem.  Note this is not HA, but in our setup
 Vault going down will not take the site down (the webservers that are already
 running will cache the secrets and be unaffected) so this is kept simple in the
 spirit of keeping the setup as minimal as possible.  Future work would be needed
-to deploy a [Consul](https://www.consul.io/) cluster to store the Vault backend,
-which would make this setup more resilient.
+to deploy a [Consul](https://www.consul.io/) cluster to act as the Vault
+backend, which would make this setup more resilient.
 
 This is what we will cover in Part One (this post).
 
