@@ -101,17 +101,6 @@ $ git checkout -b initial-apache-copy
 $ git add .
 $ git commit
 $ git push origin initial-apache-copy 
-Counting objects: 8, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 3.28 KiB | 1.09 MiB/s, done.
-Total 8 (delta 0), reused 0 (delta 0)
-remote: 
-remote: Create a pull request for 'initial-apache-copy' on GitHub by visiting:
-remote:      https://github.com/getcloudless/example-vault/pull/new/initial-apache-copy
-remote: 
-To github.com:getcloudless/example-vault.git
- * [new branch]      initial-apache-copy -> initial-apache-copy
 ```
 
 You can find that pull request
