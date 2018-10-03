@@ -176,10 +176,12 @@ gpg: key 348FFC4C: public key "HashiCorp Security <security@hashicorp.com>" impo
 gpg: no ultimately trusted keys found
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
+$
 $ # Download the binary and signature files.
 $ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_linux_amd64.zip
 $ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS
 $ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS.sig
+$
 $ # Verify the signature file is untampered.
 $ gpg --verify vault_0.11.2_SHA256SUMS.sig vault_0.11.2_SHA256SUMS
 gpg: Signature made Tue 02 Oct 2018 06:51:15 PM UTC using RSA key ID 348FFC4C
@@ -187,6 +189,7 @@ gpg: Good signature from "HashiCorp Security <security@hashicorp.com>"
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 91A6 E7F8 5D05 C656 30BE  F189 5185 2D87 348F FC4C
+$
 $ # Verify the SHASUM matches the binary.
 $ shasum -a 256 -c vault_0.11.2_SHA256SUMS
 ...
@@ -205,31 +208,7 @@ Archive:  vault_0.11.2_linux_amd64.zip
   inflating: vault                   
 $ ./vault --help
 Usage: vault <command> [args]
-
-Common commands:
-    read        Read data and retrieves secrets
-    write       Write data, configuration, and secrets
-    delete      Delete secrets and configuration
-    list        List data or secrets
-    login       Authenticate locally
-    agent       Start a Vault agent
-    server      Start a Vault server
-    status      Print seal and HA status
-    unwrap      Unwrap a wrapped secret
-
-Other commands:
-    audit          Interact with audit devices
-    auth           Interact with auth methods
-    kv             Interact with Vault's Key-Value storage
-    lease          Interact with leases
-    namespace      Interact with namespaces
-    operator       Perform operator-specific tasks
-    path-help      Retrieve API help for paths
-    plugin         Interact with Vault plugins and catalog
-    policy         Interact with policies
-    secrets        Interact with secrets engines
-    ssh            Initiate an SSH session
-    token          Interact with tokens
+...
 ```
 
 ### Vault First Run
