@@ -38,10 +38,11 @@ If you are new to secrets management, see [this blog
 post](https://medium.com/square-corner-blog/protecting-infrastructure-secrets-with-keywhiz-af674410832f)
 by Square for a good overview of the alternatives.
 
-One of the options they described was manually logging into the instances to add
-secrets, or having some other out of band automated process do that.  Besides
-the drawbacks they described in that post, [the Cloudless workflow]({% post_url
-2018-09-24-the-cloudless-development-workflow %}) explicitly doesn't involve
+Without a secrets server, your options are limited.  You can manually log into
+the instances to add secrets, or have some other out of band automated process
+log in to effectively do the same thing.  Besides the drawbacks they described
+in that post, [the Cloudless model]({% post_url
+2018-09-24-the-cloudless-development-workflow %}) explicitly doesn't encourage
 logging in to set up machines, so the instances need some way to get their own
 secrets.
 
