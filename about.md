@@ -1,10 +1,8 @@
 ---
-layout: page
+layout: about
 title: About
 permalink: /about/
 ---
-## Cloudless
-
 Cloudless is a tool for interacting with cloud services in a straightforward,
 but still powerful way.  It's intended for teams that want to deploy their own
 services, but still don't want to have to go through the pain of setting
@@ -27,15 +25,12 @@ You can also send an email to [info@getcloudless.com](info@getcloudless.com) or
 
 **Shaun Verch (Founder)**
 
-Hi I'm Shaun (sverch)!
-
-I'm a Site Reliability Engineer who has built cloud infrastructure in a wide
-range of organizations: from a 15 person startup to the world's largest
-employer.  I started Cloudless in 2018 to make it harder for humans to make
-harmful mistakes in software.  I'm passionate about open source and about making
-it easier for people to develop robust, cloud agnostic infrastructure solutions.
-Please [reach out](mailto:info@getcloudless.com) if you would like to join or
-contribute to Cloudless!
+Hi, I'm [@sverch](https://github.com/sverch)!  I'm a Site Reliability Engineer
+who has built cloud infrastructure in a wide range of organizations: from a 15
+person startup to the world's largest employer.  I started Cloudless in 2018 to
+make it harder for humans to make harmful mistakes in software.  I'm passionate
+about open source and about making it easier for people to develop robust, cloud
+agnostic infrastructure solutions.fdjsakfldjsakfljdsa;l
 
 {% include bio-picture.html
    file="/assets/images/sswanke-cropped.jpg"
@@ -43,13 +38,11 @@ contribute to Cloudless!
 
 **Sarah Swanke (Advisor)**
 
-Hi I'm Sarah (JankySwanky)!
-
-I'm a Product Manager and data nerd who's launched 3 successful products from
-the ground up, which are now currently used by ~6.75 million people. I'm good
-with data, teasing out user problems, and asking lots of questions. I joined
-Cloudless because I have a passion for open source and making it easier for
-people to build things that help other people.
+Hi, I'm [@jankyswanky](https://github.com/jankyswanky)!  I'm a Product Manager
+and data nerd who's launched 3 successful products from the ground up, which are
+used by ~6.75 million people. I'm good with data, teasing out user problems, and
+asking lots of questions. I joined Cloudless because I have a passion for open
+source and making it easier for people to build things that help other people.
 
 {% include bio-picture.html
    file="/assets/images/jisaacso.jpg"
@@ -57,6 +50,7 @@ people to build things that help other people.
 
 **Joe Isaacson (Advisor)**
 
-Joe is the VP of Engineering at Asimov, a startup in Cambridge, MA that programs
-living cells to develop previously impossible biotechnologies.  Prior to Asimov,
-he managed machine learning teams at Quora and at URX (acquired by Pinterest).
+Hi, I'm [@jisaacso](https://github.com/jisaacso)!  I'm the VP of Engineering at
+Asimov, a startup in Cambridge, MA that programs living cells to develop
+previously impossible biotechnologies.  Prior to Asimov, I managed machine
+learning teams at Quora and at URX (acquired by Pinterest).
