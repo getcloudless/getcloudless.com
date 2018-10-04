@@ -143,6 +143,7 @@ $hover-menu-border: transparent;
   .topnav {
     background-color: transparent;
     display: block;
+    padding: 1.2rem;
     position: absolute;
     right: 10px;
     top: 20px;
@@ -153,7 +154,7 @@ $hover-menu-border: transparent;
       border-color: transparent;
       border-radius: 10px;
       color: $topnav-text;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
       margin: 2px;
       padding: 7px 8px 7px 10px;
