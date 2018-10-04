@@ -64,6 +64,12 @@ body {
     border-style: solid;
     border-width: 0 0 5px;
     box-shadow: 3px 1px 2px 1px $masthead-shadow-color;
+    overflow: hidden;
+
+    .inner {
+      float: left;
+      position: relative;
+    }
   }
 }
 
@@ -75,7 +81,7 @@ body {
 
 .bio-picture {
   float: left;
-  padding: 0 3% 2% 3%;
+  padding: 0 3% 2%;
   width: 25%;
 }
 
@@ -86,15 +92,15 @@ body {
 
 @media screen and (min-width: 768px) {
   .initial-content {
-    max-width: 80%;
     margin: auto;
+    max-width: 80%;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .initial-content {
-    max-width: 1250px;
     margin: auto;
+    max-width: 1250px;
   }
 }
 
@@ -111,6 +117,79 @@ $inline-code-text: $main-background;
   background-color: $inline-code-background;
   color: $inline-code-text;
 }
+
+$topnav-text: #000;
+$active-menu-background: $masthead-background;
+$hover-menu-background: #ddd;
+$active-menu-text: #000;
+$active-menu-border: transparent;
+$hover-menu-text: #000;
+$hover-menu-border: transparent;
+
+.topnav {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .sidebar-toggle-wrapper {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  // Add a black background color to the top navigation
+  .topnav {
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+
+    // Style the links inside the navigation bar
+    a {
+      border: solid;
+      border-color: transparent;
+      border-radius: 10px;
+      color: $topnav-text;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 2px;
+      padding: 7px 8px 7px 10px;
+      text-align: center;
+      text-decoration: none;
+
+      :hover {
+        border-width: 0;
+      }
+    }
+
+    // Change the color of links on hover
+    :hover {
+      background-color: $hover-menu-background;
+      border-color: $hover-menu-border;
+      color: $hover-menu-text;
+    }
+
+    // Change the color of links on hover
+    .active {
+      // Add a color to the active/current link
+      background-color: $active-menu-background;
+      border-color: $active-menu-border;
+      color: $active-menu-text;
+    }
+
+    // This doesn't seem to work otherwise...
+    // sass-lint:disable force-pseudo-nesting
+    .active:hover {
+      background-color: $hover-menu-background;
+      border-color: $hover-menu-border;
+      color: $hover-menu-text;
+    }
+  }
+}
+
 
 // MailChimp Form Embed Code - Classic - 12/17/2015 v10.7
 // Disable a bunch of lint checks, because I copied this from mailchimp

@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Alpha
+title: Alpha Program
 permalink: /alpha/
 ---
-## Cloudless Alpha Program
-
 [Welcome to Cloudless!]({% post_url 2018-09-05-welcome-to-cloudless %})
 Cloudless is the first platform for developing cloud agnostic infrastructure
 while giving you complete control right down to the Operating System level.
