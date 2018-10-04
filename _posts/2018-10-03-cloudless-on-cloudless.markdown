@@ -162,8 +162,8 @@ Now that we're on the machine, we can try out the Vault installation.  I'm not
 doing anything fancy here, just following the [Vault Installation
 Documentation](https://www.vaultproject.io/intro/getting-started/install.html).
 
-First, we need to download Vault.  These steps also include verifification of
-the package signature.  See [here](https://www.hashicorp.com/security.html) for
+First, we need to download Vault.  These steps also include verification of the
+package signature.  See [here](https://www.hashicorp.com/security.html) for
 documentation on how to do this and how to find Hashicorp's keys.
 
 ```shell
@@ -344,8 +344,10 @@ keys = result['keys']
 client.unseal_multi(keys)
 ```
 
-For simplicity we will just use the root token in the rest of the calls.  The
-goal is to test that Vault is running, not to do a full secure setup for now.
+For simplicity we will just use the [root
+token](https://www.vaultproject.io/docs/concepts/tokens.html) in the rest of the
+calls.  The goal is to test that Vault is running, not to do a full secure setup
+for now.
 
 Now when we run the `check` command, the verify succeeds!
 
