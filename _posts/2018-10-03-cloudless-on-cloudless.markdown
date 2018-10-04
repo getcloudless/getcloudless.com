@@ -12,11 +12,15 @@ Given that, this post is meant to document the process of deploying
 [getcloudless.com](https://getcloudless.com) on Cloudless.  It's a small test
 case because getcloudless.com is a simple static site, but everything has to
 start somewhere and this will be a good way to show the "minimum viable"
-deployment.  DISCLAIMER: This does not deploy [Vault with
-TLS](https://www.vaultproject.io/docs/configuration/listener/tcp.html) , which
-means that traffict to and from Vault will not be encrypted.  If you use this
-for anything but a personal project, make sure you know what you're doing and
-manage that appropriately.  If you want to add TLS, pull requests are welcome!
+deployment.
+
+Note that this example does not deploy [Vault with
+TLS](https://www.vaultproject.io/docs/configuration/listener/tcp.html), which
+means that traffic to and from Vault will not be encrypted.  I'm sidestepping
+the issue for now by deploying it as an "internal" service for getcloudless.com,
+but if you use this for anything but a personal project, make sure you know what
+you're doing and manage that appropriately.  If you want to add TLS, pull
+requests are welcome!
 
 Cloudless is the only open source project that can deploy services on multiple
 cloud providers without requiring you to use a whole opinionated framework or
