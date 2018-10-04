@@ -30,7 +30,7 @@ who has built cloud infrastructure in a wide range of organizations: from a 15
 person startup to the world's largest employer.  I started Cloudless in 2018 to
 make it harder for humans to make harmful mistakes in software.  I'm passionate
 about open source and about making it easier for people to develop robust, cloud
-agnostic infrastructure solutions.fdjsakfldjsakfljdsa;l
+agnostic infrastructure solutions.
 
 {% include bio-picture.html
    file="/assets/images/sswanke-cropped.jpg"
