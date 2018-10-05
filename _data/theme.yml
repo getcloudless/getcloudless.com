@@ -1,5 +1,6 @@
 t:
   posts: "Latest Posts"
+  email: "Contact"
 
 navigation_pages:
   - about.md

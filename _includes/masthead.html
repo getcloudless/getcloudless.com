@@ -50,5 +50,20 @@
     </a>
     {% endif %}
   {% endfor %}
+  {% if site.docs_url %}
+    <a href="{{ site.docs_url }}">
+      <span class="icon icon--docs">{% include icon-docs.svg %}</span>
+      <span class="label">Documentation</span>
+    </a>
+  {% endif %}
+  {% if site.github_username %}
+    {% include icon-github.html username=site.github_username label='GitHub' %}
+  {% endif %}
+  {% if site.email %}
+    <a href="mailto:{{ site.email }}">
+      <span class="icon icon--email">{% include icon-email.svg %}</span>
+      <span class="label">{{ site.data.theme.t.email | default: 'Email' }}</span>
+    </a>
+  {% endif %}
   </div>
 </header>
