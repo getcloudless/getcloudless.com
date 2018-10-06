@@ -203,17 +203,18 @@ $grid-container-border: #000;
 }
 
 .intro-grid-item {
-  border: 2px solid $grid-container-border;
+  border: 0 solid $grid-container-border;
   border-radius: 10px;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 
   hr {
     background-color: $grid-container-border; // Modern Browsers
     border: 0;
+    box-shadow: 0 2px 2px 0 $masthead-shadow-color;
     color: $grid-container-border; // old IE
-    height: 2px;
+    height: 4px;
   }
 }
 
