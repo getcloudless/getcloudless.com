@@ -8,8 +8,10 @@ sub_title: "Humans shouldn't have to think about this"
 ---
 Welcome to Cloudless!  Cloudless is an open source cloud deployment tool
 designed to make it as easy to deploy your own infrastructure stack as it is to
-buy a black box managed service.  These are just a few of the design goals of
-Cloudless...
+buy a black box managed service.
+
+Why use Cloudless?  Cloudless is...
+
 {% include intro-grid.html
     section_1_header="Intuitive"
     section_1_content="Cloudless does the right thing and makes it obvious why.
