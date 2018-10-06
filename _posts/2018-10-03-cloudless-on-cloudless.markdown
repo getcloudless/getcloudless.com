@@ -437,10 +437,4 @@ merged into master, so you could run this all yourself!
 This is part one of a two part setup, and we still need to deploy the web
 service itself, so check back for updates!
 
-<hr>
-
-Thanks for trying Cloudless!  Check out the
-[Documentation](https://docs.getcloudless.com/) for more info, and star the
-[Github Repo](https://github.com/getcloudless/cloudless) if you like this
-project.  You can also [subscribe for updates](/#subscribe-for-updates) or email
-[info@getcloudless.com](info@getcloudless.com).
+{% include post-footer.html %}

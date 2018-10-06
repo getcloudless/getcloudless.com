@@ -285,10 +285,4 @@ cldls service destroy dev public
 cldls network destroy
 ```
 
-<hr>
-
-Thanks for trying Cloudless!  Check out the
-[Documentation](https://docs.getcloudless.com/) for more info, and star the
-[Github Repo](https://github.com/getcloudless/cloudless) if you like this
-project.  You can also [subscribe for updates](/#subscribe-for-updates) or email
-[info@getcloudless.com](info@getcloudless.com).
+{% include post-footer.html %}

@@ -97,6 +97,18 @@ $bio-section-bar: #000;
   margin: 30px 0;
 }
 
+$post-footer-bar: #000;
+
+.post-footer-bar {
+  background-color: $post-footer-bar; // Modern Browsers
+  border: 0;
+  box-shadow: 0 2px 2px 0 $masthead-shadow-color;
+  clear: both;
+  color: $post-footer-bar; // old IE
+  height: 4px;
+  margin: 30px 0;
+}
+
 .team-section-end {
   clear: both;
   margin: 30px 0;

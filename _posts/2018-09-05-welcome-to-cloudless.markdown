@@ -80,3 +80,5 @@ issue](https://github.com/getcloudless/cloudless/issues).
 
 For more information, email
 [info@getcloudless.com](mailto:info@getcloudless.com).
+
+{% include post-footer.html %}
