@@ -14,7 +14,7 @@
 }
 
 .intro {
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
   padding-bottom: 0;
   padding-top: 0;
 
@@ -86,6 +86,11 @@ body {
 }
 
 .bio-section-start {
+  clear: both;
+  margin: 30px 0;
+}
+
+.team-section-end {
   clear: both;
   margin: 30px 0;
 }
@@ -191,6 +196,34 @@ $hover-menu-border: transparent;
   }
 }
 
+$grid-container-border: #000;
+
+.intro-grid-container {
+  display: grid;
+}
+
+.intro-grid-item {
+  border: 4px solid $grid-container-border;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.intro-grid-header {
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .intro-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.layout--page {
+  .entry-content {
+    width: 100%;
+  }
+}
 
 // MailChimp Form Embed Code - Classic - 12/17/2015 v10.7
 // Disable a bunch of lint checks, because I copied this from mailchimp
