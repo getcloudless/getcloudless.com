@@ -3,5 +3,5 @@ t:
   email: "Contact"
 
 navigation_pages:
-  - about.md
   - alpha.md
+  - blog.md

@@ -25,27 +25,13 @@
     </div>
   </div>
   <div class="topnav">
-    <!-- Home link -->
-    {% assign current_url = page.url | relative_url %}
-    {% assign home_url = '/' | relative_url %}
-    <a
-    {% if home_url == current_url %}
-        class="active"
-    {% endif %}
-        href="{{ home_url }}" itemprop="url">
-      <span itemprop="name">{{ site.data.theme.t.home | default: 'Home' }}</span>
-    </a>
   {% assign default_paths = site.pages | map: "path" %}
   {% assign page_paths = site.data.theme.navigation_pages | default: default_paths %}
   {% for path in page_paths %}
     {% assign my_page = site.pages | where: "path", path | first %}
     {% if my_page.title %}
     {% assign item_url = my_page.url | relative_url %}
-    <a
-    {% if item_url == current_url %}
-        class="active"
-    {% endif %}
-        href="{{ item_url | relative_url }}" itemprop="url">
+    <a href="{{ item_url | relative_url }}" itemprop="url">
       <span itemprop="name">{{ my_page.title | escape }}</span>
     </a>
     {% endif %}
