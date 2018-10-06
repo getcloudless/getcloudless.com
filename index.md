@@ -26,7 +26,7 @@ buy a black box managed service.  Cloudless is...
     just use Cloudless on its own."
 
     section_4_header="Portable"
-    section_4_content="Because instance types, feature names, and specific
+    section_4_content="Because instance types, feature names, and cloud-specific
     property names are all abstracted away, any infrastructure built using
     Cloudless works across all supported providers." %}
 
