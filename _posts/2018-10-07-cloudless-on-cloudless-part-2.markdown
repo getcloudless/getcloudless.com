@@ -43,4 +43,93 @@ servers stops responding.
 
 ## Security
 
+For security, we have a place to store our secrets, so we don't have to commit
+them into version control or pass them around out of band, but we still have a
+problem. How do we make sure the web servers, and only the web servers, can
+access the secrets?
+
+Well, it comes down to choosing something that is true about the authorized
+clients but not true about anyone else. Some of our options are:
+
+- *Where they are*: This gives full access to any client that can reach the
+  resource, and protection is done using private networks and firewall rules.
+- *What they have*: This requires the client to present something that shows
+  they should be allowed to do the requested operation, like an API token.
+- *What they can do*: This requires the client to do something that only an
+  authorized client can do, like add a DNS entry to prove they own a domain.
+- *Who they are*: This requires clients to prove their identity, or on some kind
+  of inherent property of the client, like tags on the instance the request is
+  coming from.
+
+For now, I'm just going to do *where they are* and control access using firewall
+rules. This is the least secure, but for now it's good enough. Since the web
+servers have to access the secrets to function anyway, I'm going to assume that
+once the web servers are compromised everything I care about is compromised
+anyway (and make sure that the Vault server doesn't have any extra permissions
+or access that the web servers don't).
+
+Once Cloudless supports [portable instance
+permissions](https://github.com/getcloudless/cloudless/issues/48), we can allow
+the Vault server to ask our cloud provider "is this instance really tagged as a
+web server", which will add a layer of *who they are* on top of what we're doing
+now. We would also need to set up TLS on the Vault server for this to matter at
+all.
+
+## Deployment
+
+Because the current security model for this deployment is all about protecting
+access using firewall rules, I'm going to just save the root key on the Vault
+server so that nothing has to be stored in version control or out of band. This
+is not really the way you're supposed to use Vault, but for what we're trying to
+do now it'll work, and once
+[https://github.com/getcloudless/cloudless/issues/48](https://github.com/getcloudless/cloudless/issues/48)
+is done, or we have some kind of real inventory server, we can do something
+smarter.
+
+So first, let's add a small change to the
+[example-vault](https://github.com/getcloudless/example-vault) blueprint to make
+it possible to add some SSH keys. At some point, we might be able to do
+something smarter (like store these in Vault so we can centrally manage user
+accounts), but as we're bootstrapping adding
+them as arguments to the startup script is good enough. The pull request is up
+[here](), and note it comes with a regression test.
+
+Now, just like before, let's copy the [example-apache](https://github.com/getcloudless/example-apache) blueprint to create [example-static-site](https://github.com/getcloudless/example-static-site).
+
+The first difference from our Vault setup is that this blueprint will depend on
+the Vault blueprint. Until [issue]() is done, we have to clone that blueprint as
+a submodule:
+
+```
+git submodule add https://github.com/getcloudless/example-vault
+```
+
+Now, in the test setup, we can add:
+
+```
+TODO
+```
+
+This will tell the test framework to create a Vault server before creating our
+static web server. It also unseals the Vault server and passes the root key and
+private IP address back to the test framework. These will be passed to the web
+server startup script because of these lines in `blueprint.yml`:
+
+```
+TODO
+```
+
+They will be passed as template variables to jinja2, which will template out the
+startup script. Just to get started, let's add this to our startup script:
+
+```
+TODO
+```
+
+I don't know if this is what we'll ultimately want, but it will save the Vault
+root token in the test user's home directory, which is the perfect place for us
+to pick up.
+
+TODO: Going to need mock echo servers...
+
 
