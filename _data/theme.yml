@@ -5,3 +5,7 @@ t:
 navigation_pages:
   - alpha.md
   - blog.md
+
+google_fonts:
+  - name: "Roboto"
+    weights: "400,400i,700,700i"

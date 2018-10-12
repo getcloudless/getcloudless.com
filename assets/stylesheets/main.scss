@@ -4,10 +4,34 @@
 
 @charset 'utf-8';
 
+$base-font-family: 'Roboto', monospace;
+$inner-div-topbar: #000;
+$calendar-icon: #000;
+$masthead-shadow-color: #888;
+$main-background: #f9f9f9;
+$masthead-background: #f5f5f5;
+$inline-code-background: #777;
+$inline-code-text: $main-background;
+$topnav-text: #000;
+$active-menu-background: $masthead-background;
+$hover-menu-background: #ddd;
+$active-menu-text: #000;
+$active-menu-border: transparent;
+$hover-menu-text: #000;
+$hover-menu-border: transparent;
+$hover-learn-more-background: $hover-menu-background;
+$learn-more-background: $masthead-background;
+
 // Theme skin
 @import 'basically-basic/themes/{{ site.data.theme.skin | default: "default" }}';
 
 @import 'basically-basic';
+
+.site-title {
+  font-size: 18px;
+  padding-left: 18px;
+  padding-top: 26px;
+}
 
 .site-logo {
   border-radius: 10%;
@@ -40,36 +64,109 @@
   }
 }
 
-$inner-div-topbar: #000;
-$calendar-icon: #000;
-$masthead-shadow-color: #888;
-$main-background: #f9f9f9;
-$masthead-background: #f5f5f5;
-
 body {
   background-color: $main-background;
 }
 
 .sidebar-toggle-wrapper {
   background-color: transparent;
+  margin: .5em;
+  z-index: 1000010;
 }
 
 .wrapper {
   background-color: $main-background;
+  padding-top: 70px;
+}
 
-  // sass-lint:disable no-ids
-  #masthead {
-    background-color: $masthead-background;
-    border-color: $inner-div-topbar;
-    border-style: solid;
-    border-width: 0 0 5px;
-    box-shadow: 3px 1px 2px 1px $masthead-shadow-color;
-    overflow: hidden;
+.pitch {
+  margin: 5em auto 2em;
+  width: 100%;
 
-    .inner {
-      float: left;
-      position: relative;
+  .pitch-title {
+    margin-bottom: .5em;
+    text-align: center;
+  }
+
+  .pitch-subtitle {
+    margin: 0 auto;
+    margin-bottom: .5em;
+    text-align: center;
+    width: 70%;
+  }
+
+  .pitch-button-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+    position: relative;
+  }
+
+  .pitch-button {
+    background-color: $learn-more-background;
+    border-radius: 10px;
+    outline: none;
+    position: relative;
+  }
+
+  // This doesn't seem to work otherwise...
+  // sass-lint:disable force-pseudo-nesting
+  .pitch-button:hover {
+    background-color: $hover-learn-more-background;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pitch {
+    .pitch-title {
+      font-size: 40px;
     }
+
+    .pitch-subtitle {
+      font-size: 25px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .pitch {
+    margin: 5em auto 4em;
+
+    .pitch-title {
+      font-size: 46px;
+    }
+
+    .pitch-subtitle {
+      font-size: 30px;
+    }
+  }
+}
+
+// sass-lint:disable no-ids
+#masthead {
+  background-color: $masthead-background;
+  border-color: $inner-div-topbar;
+  border-style: solid;
+  border-width: 0 0 5px;
+  box-shadow: 3px 1px 2px 1px $masthead-shadow-color;
+  height: 70px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100000;
+
+  .topnav {
+    float: right;
+    position: relative;
+    top: 0;
+  }
+
+  .inner {
+    float: left;
+    position: relative;
+    top: -1em;
   }
 }
 
@@ -134,21 +231,10 @@ $post-footer-bar: #000;
   }
 }
 
-$inline-code-background: #777;
-$inline-code-text: $main-background;
-
 .highlighter-rouge {
   background-color: $inline-code-background;
   color: $inline-code-text;
 }
-
-$topnav-text: #000;
-$active-menu-background: $masthead-background;
-$hover-menu-background: #ddd;
-$active-menu-text: #000;
-$active-menu-border: transparent;
-$hover-menu-text: #000;
-$hover-menu-border: transparent;
 
 .topnav {
   display: none;
@@ -167,7 +253,7 @@ $hover-menu-border: transparent;
   .topnav {
     background-color: transparent;
     display: block;
-    padding: 1.2rem;
+    padding: 1rem;
     position: absolute;
     right: 10px;
     top: 20px;
@@ -178,7 +264,7 @@ $hover-menu-border: transparent;
       border-color: transparent;
       border-radius: 10px;
       color: $topnav-text;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: bold;
       margin: 2px;
       padding: 7px 8px 7px 10px;

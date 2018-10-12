@@ -2,13 +2,16 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: page
+layout: home
 title: "Cloudless"
-sub_title: "Humans shouldn't have to think about this"
 ---
-Welcome to Cloudless!  Cloudless is an open source cloud deployment tool
-designed to make it as easy to deploy your own infrastructure stack as it is to
-buy a black box managed service.  Cloudless is...
+{% capture local_url %}{% post_url 2018-09-05-welcome-to-cloudless %}{% endcapture %}
+{% include pitch.html
+    pitch_title="Control Your Infrastructure"
+    pitch_subtitle="The Open Source alternative to proprietary managed services"
+    pitch_cta_url=local_url
+    pitch_cta_message="Learn More" %}
+
 {% include intro-grid.html
     section_1_header="Intuitive"
     section_1_content="Cloudless does the right thing and makes it obvious why.
@@ -30,14 +33,9 @@ buy a black box managed service.  Cloudless is...
     property names are all abstracted away, any infrastructure built using
     Cloudless works across all supported providers." %}
 
-See the [Documentation](https://docs.getcloudless.com/) for how to get started,
-follow along with the [Github Repo](https://github.com/getcloudless/cloudless)
-to stay up to date on current development, and finally, send an email to
-[info@getcloudless.com](info@getcloudless.com) or [subscribe
-below](/#subscribe-for-updates) to stay in touch.
-
-## Subscribe For Updates!
-{% include signup.html %}
+Check out the [Blog](/blog) to learn more about Cloudless and how to use it, or
+just go straight to the [Docs]({{ site.docs_url }}) and [Github
+Repo](https://github.com/{{ site.github_username }}) to get started!
 
 ## Who Is Cloudless
 

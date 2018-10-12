@@ -1,0 +1,13 @@
+<div class="pitch">
+  <h1 class="pitch-title">
+    {{ include.pitch_title }}
+  </h1>
+  <p class="pitch-subtitle">
+    {{ include.pitch_subtitle }}
+  </p>
+  <div class="pitch-button-container">
+    <form action="{{ include.pitch_cta_url }}">
+      <input type="submit" value="{{ include.pitch_cta_message }}" class="pitch-button" />
+    </form>
+  </div>
+</div>
