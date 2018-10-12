@@ -5,45 +5,62 @@
 {% endif %}
 
 <header id="masthead">
-  <div class="inner">
-    <div class="title-area">
-      {% if page.url == '/' %}
-        <h1 class="site-title">
-          <a href="{{ '/' | relative_url }}">
-            {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
-            <span>{{ site.title | escape }}</span>
-          </a>
-        </h1>
-      {% else %}
-        <p class="site-title">
-          <a href="{{ '/' | relative_url }}">
-            {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
-            <span>{{ site.title | escape }}</span>
-          </a>
-        </p>
+  <div class="masthead-tophalf">
+    <div class="inner">
+      <div class="title-area">
+        {% if page.url == '/' %}
+          <h1 class="site-title">
+            <a href="{{ '/' | relative_url }}">
+              {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+              <span>{{ site.title | escape }}</span>
+            </a>
+          </h1>
+        {% else %}
+          <p class="site-title">
+            <a href="{{ '/' | relative_url }}">
+              {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+              <span>{{ site.title | escape }}</span>
+            </a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="topnav">
+    {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = site.data.theme.navigation_pages | default: default_paths %}
+    {% for path in page_paths %}
+      {% assign my_page = site.pages | where: "path", path | first %}
+      {% if my_page.title %}
+      {% assign item_url = my_page.url | relative_url %}
+      <a href="{{ item_url | relative_url }}" itemprop="url">
+        <span itemprop="name">{{ my_page.title | escape }}</span>
+      </a>
       {% endif %}
+    {% endfor %}
+    {% if site.docs_url %}
+      <a href="{{ site.docs_url }}">
+        <span class="icon icon--docs">{% include icon-docs.svg %}</span>
+        <span class="label">Docs</span>
+      </a>
+    {% endif %}
+    {% if site.github_username %}
+      {% include icon-github.html username=site.github_username label='GitHub' %}
+    {% endif %}
     </div>
   </div>
-  <div class="topnav">
-  {% assign default_paths = site.pages | map: "path" %}
-  {% assign page_paths = site.data.theme.navigation_pages | default: default_paths %}
-  {% for path in page_paths %}
-    {% assign my_page = site.pages | where: "path", path | first %}
-    {% if my_page.title %}
-    {% assign item_url = my_page.url | relative_url %}
-    <a href="{{ item_url | relative_url }}" itemprop="url">
-      <span itemprop="name">{{ my_page.title | escape }}</span>
-    </a>
-    {% endif %}
-  {% endfor %}
-  {% if site.docs_url %}
-    <a href="{{ site.docs_url }}">
-      <span class="icon icon--docs">{% include icon-docs.svg %}</span>
-      <span class="label">Docs</span>
-    </a>
-  {% endif %}
-  {% if site.github_username %}
-    {% include icon-github.html username=site.github_username label='GitHub' %}
-  {% endif %}
+  <div class="masthead-middle-layer">
+    This is only here to make the bar work properly.
+  </div>
+  <div class="masthead-bottomhalf">
+    <div class="masthead-bottomhalf-text">
+      <h1 class="masthead-bottomhalf-title">
+        The Open Source Alternative to Managed Services
+      </h1>
+      <p class="masthead-bottomhalf-description">
+        Cloudless bridges the gap between real production deployments and open
+        source software, so you can have all the features you want without the
+        vendor lock-in.
+      </p>
+    </div>
   </div>
 </header>

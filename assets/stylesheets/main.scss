@@ -9,6 +9,11 @@
 
 @import 'basically-basic';
 
+.site-title {
+  padding-left: 2vw;
+  padding-top: 1vw;
+}
+
 .site-logo {
   border-radius: 10%;
 }
@@ -56,19 +61,79 @@ body {
 
 .wrapper {
   background-color: $main-background;
+  padding-top: 120px;
+  z-index: -1;
+}
 
-  // sass-lint:disable no-ids
-  #masthead {
+// sass-lint:disable no-ids
+#masthead {
+  background-color: $masthead-background;
+  height: 220px;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  z-index: 100000;
+
+  .topnav {
+    float: right;
+    position: relative;
+  }
+
+  .inner {
+    float: left;
+    position: relative;
+  }
+
+  .masthead-tophalf {
+    background-color: $masthead-background;
+    float: left;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100003;
+  }
+
+  .masthead-middle-layer {
+    background-color: transparent;
+    border-color: $inner-div-topbar;
+    border-style: solid;
+    border-width: 0 0 5px;
+    box-shadow: 3px 1px 2px 1px $masthead-shadow-color;
+    float: left;
+    height: 85px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100001;
+  }
+
+  .masthead-bottomhalf {
     background-color: $masthead-background;
     border-color: $inner-div-topbar;
     border-style: solid;
     border-width: 0 0 5px;
     box-shadow: 3px 1px 2px 1px $masthead-shadow-color;
-    overflow: hidden;
+    float: left;
+    padding-top: 90px;
+    position: relative;
+    width: 100%;
+    z-index: 100002;
 
-    .inner {
-      float: left;
-      position: relative;
+    .masthead-bottomhalf-text {
+      margin: 0 auto;
+      width: 60%;
+    }
+
+    .masthead-bottomhalf-title {
+      font-size: 30px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .masthead-bottomhalf-description {
+      font-size: 20px;
+      text-align: center;
     }
   }
 }
@@ -167,7 +232,7 @@ $hover-menu-border: transparent;
   .topnav {
     background-color: transparent;
     display: block;
-    padding: 1.2rem;
+    padding: 1rem;
     position: absolute;
     right: 10px;
     top: 20px;
@@ -178,7 +243,7 @@ $hover-menu-border: transparent;
       border-color: transparent;
       border-radius: 10px;
       color: $topnav-text;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: bold;
       margin: 2px;
       padding: 7px 8px 7px 10px;

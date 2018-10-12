@@ -4,7 +4,6 @@
 
 layout: page
 title: "Cloudless"
-sub_title: "Humans shouldn't have to think about this"
 ---
 Welcome to Cloudless!  Cloudless is an open source cloud deployment tool
 designed to make it as easy to deploy your own infrastructure stack as it is to
