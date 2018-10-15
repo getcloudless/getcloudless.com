@@ -212,6 +212,14 @@ Excellent. So now we have a basic Consul setup. I put all this work in [the same
 pull request](https://github.com/getcloudless/example-consul/pull/2) just to
 make it easier.
 
+Remember, this automatically works on both AWS and GCE because it's the same API
+for both. I can test this with this command because my `aws` profile is set up
+to run against my AWS account:
+
+```
+$ cldls --profile aws service-test run service_test_configuration.yml
+```
+
 Check back for part 2, where I'll use this to create the web servers and finish
 deploying [getcloudless.com](https://getcloudless.com) on Cloudless!
 
