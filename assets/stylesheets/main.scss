@@ -105,9 +105,16 @@ body {
 
   .pitch-button {
     background-color: $learn-more-background;
-    border-radius: 10px;
+    border-color: $inner-div-topbar;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    color: $topnav-text;
+    font-size: 16px;
     outline: none;
+    padding: 0 6px;
     position: relative;
+    text-decoration: none;
   }
 
   // This doesn't seem to work otherwise...

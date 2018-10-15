@@ -6,8 +6,6 @@
     {{ include.pitch_subtitle }}
   </p>
   <div class="pitch-button-container">
-    <form action="{{ include.pitch_cta_url }}">
-      <input type="submit" value="{{ include.pitch_cta_message }}" class="pitch-button" />
-    </form>
+    <a href="{{ include.pitch_cta_url }}" class="pitch-button">{{ include.pitch_cta_message }}</a>
   </div>
 </div>
