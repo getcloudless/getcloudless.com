@@ -71,7 +71,12 @@ body {
 .sidebar-toggle-wrapper {
   background-color: transparent;
   margin: .5em;
+  position: fixed;
   z-index: 1000010;
+}
+
+.sidebar {
+  top: 70px;
 }
 
 .wrapper {
