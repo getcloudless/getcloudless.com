@@ -14,6 +14,12 @@ case because getcloudless.com is a simple static site, but everything has to
 start somewhere and this will be a good way to show the "minimum viable"
 deployment.
 
+DISCLAIMER: This is a good example of how to use Cloudless, but don't actually
+use this Vault module until it has high availability and encryption. I realized
+that I'm not really using it as a true secret server right now, which is a bit
+misleading, so I added a supplementary post to set up a [Consul server]({%
+post_url 2018-10-14-cloudless-on-cloudless-1.5 %}).
+
 Note that this example does not deploy [Vault with
 TLS](https://www.vaultproject.io/docs/configuration/listener/tcp.html), which
 means that traffic to and from Vault will not be encrypted.  I'm sidestepping
