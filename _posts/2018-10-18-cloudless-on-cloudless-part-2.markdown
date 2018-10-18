@@ -215,7 +215,7 @@ request](https://github.com/getcloudless/example-static-site/pull/2).
 If you read the first two posts, this is starting to become familiar:
 
 ```
-$ cldls service-test deploy service_test_configuration.yml
+sverch@local:$ cldls service-test deploy service_test_configuration.yml
 Service test group with provider: gce
 ...
 INFO:cloudless.providers.gce:Creating subnetwork consul in test-network-hbocrrlcgg with blueprint /home/sverch/projects/example-static-site/example-consul/blueprint.yml
@@ -231,19 +231,19 @@ created. Let's see if the web server was able to pull the dummy key from Consul:
 
 ```
 ssh -i /home/sverch/projects/example-static-site/.cloudless/id_rsa_test cloudless_service_test@35.237.3.172
-$ cat /tmp/dummy_key.txt
-$
+sverch@remote:$ cat /tmp/dummy_key.txt
+sverch@remote:$
 ```
 
 No luck, but let's see if the python script is there:
 
 ```
-$ cat /tmp/fetch_key.py
+sverch@remote:$ cat /tmp/fetch_key.py
 import consul
 consul_client = consul.Consul("10.0.0.2")
 dummy_api_key = consul_client.kv.get('dummy_api_key')
 print(dummy_api_key[1]["Value"].decode("utf-8").strip()
-$ python /tmp/fetch_key.py
+sverch@remote:$ python /tmp/fetch_key.py
   File "/tmp/fetch_key.py", line 5
 
                                                            ^
@@ -275,36 +275,36 @@ this already.
 First, let's install nginx:
 
 ```
-$ sudo apt-get install nginx
+sverch@remote:$ sudo apt-get install nginx
 ```
 
 And from another terminal make sure we can reach it from the public IP:
 
 ```
-$ curl --silent 35.237.3.172 | grep "Thank you"
+sverch@local:$ curl --silent 35.237.3.172 | grep "Thank you"
 <p><em>Thank you for using nginx.</em></p>
 ```
 
 Now, let's do all the Jekyll setup:
 
 ```
-$ sudo apt-get install git
-$ git clone https://github.com/getcloudless/getcloudless.com.git
-$ sudo apt-get install ruby ruby-dev build-essential
-$ sudo gem install bundler
-$ cd getcloudless.com/
-$ export GEM_HOME=$HOME/gems
-$ export PATH=$HOME/gems/bin:$PATH
-$ bundle install
+sverch@remote:$ sudo apt-get install git
+sverch@remote:$ git clone https://github.com/getcloudless/getcloudless.com.git
+sverch@remote:$ sudo apt-get install ruby ruby-dev build-essential
+sverch@remote:$ sudo gem install bundler
+sverch@remote:$ cd getcloudless.com/
+sverch@remote:$ export GEM_HOME=$HOME/gems
+sverch@remote:$ export PATH=$HOME/gems/bin:$PATH
+sverch@remote:$ bundle install
 ...
 	ERROR: Failed to build gem native extension.
 ...
 zlib is missing; necessary for building libxml2
 ...
-$ sudo apt-get install zlib1g-dev
-$ bundle install
-$ sudo chown -R $(whoami) /var/www/html
-$ bundle exec jekyll build --destination /var/www/html
+sverch@remote:$ sudo apt-get install zlib1g-dev
+sverch@remote:$ bundle install
+sverch@remote:$ sudo chown -R $(whoami) /var/www/html
+sverch@remote:$ bundle exec jekyll build --destination /var/www/html
 ```
 
 That's a lot, but it's mostly fighting with ruby dependencies and stepping
@@ -314,7 +314,7 @@ through the normal installation of Jekyll, which you can find
 But now, we're serving Cloudless!
 
 ```
-$ curl --silent 35.237.3.172 | grep "<title>"
+sverch@local:$ curl --silent 35.237.3.172 | grep "<title>"
     <title>Cloudless</title>
 ```
 
@@ -341,7 +341,7 @@ def verify(self, network, service, setup_info):
 And check it:
 
 ```
-$ cldls service-test check service_test_configuration.yml
+sverch@local:$ cldls service-test check service_test_configuration.yml
 ...
 Check complete!
 ...
@@ -351,8 +351,8 @@ Now I'll just add all the above configuration to the startup script, and try to
 run the full deploy/test cycle:
 
 ```
-$ cldls service-test cleanup service_test_configuration.yml
-$ cldls service-test run service_test_configuration.yml
+sverch@local:$ cldls service-test cleanup service_test_configuration.yml
+sverch@local:$ cldls service-test run service_test_configuration.yml
 ...
 INFO:cloudless.util:All tests passed!
 Full test run complete!
@@ -379,7 +379,7 @@ documentation](https://sslmate.com/help/cmdline/automation), I created a
 sandbox credentials and ran this on my local machine:
 
 ```
-$ sslmate --batch buy --no-wait --email admin@getcloudless.com getcloudless.com
+sverch@local:$ sslmate --batch buy --no-wait --email admin@getcloudless.com getcloudless.com
 Generating private key... Done.
 Generating CSR... Done.
 Placing order...
@@ -399,7 +399,7 @@ I never got an email, but the certificates are authorized, which is probably
 just a feature of the sandbox:
 
 ```
-$ sslmate download getcloudless.com
+sverch@local:$ sslmate download getcloudless.com
 The certificate for getcloudless.com has been downloaded.
 
            Private key: getcloudless.com.key
@@ -411,7 +411,7 @@ Certificate with chain: getcloudless.com.chained.crt
 All right! Let's check out the certificates:
 
 ```
-$ openssl x509 -text -noout -in getcloudless.com.crt  | grep Sandbox
+sverch@local:$ openssl x509 -text -noout -in getcloudless.com.crt  | grep Sandbox
         Issuer: C = US, O = SSLMate, CN = SSLMate 2015 Sandbox Intermediate CA 2
         Subject: OU = SSLMate Sandbox (Untrusted), OU = Domain Control Validated, OU = PositiveSSL, CN = getcloudless.com
 ```

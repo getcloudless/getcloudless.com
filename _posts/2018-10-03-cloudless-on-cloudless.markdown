@@ -106,15 +106,15 @@ First, let's copy the
 since that's the simplest starting point, and use it to create [example-vault](https://github.com/getcloudless/example-vault):
 
 ```shell
-$ git clone https://github.com/getcloudless/example-apache.git
-$ git clone https://github.com/getcloudless/example-vault.git
-$ cp -r example-apache/* example-vault/
+sverch@local:$ git clone https://github.com/getcloudless/example-apache.git
+sverch@local:$ git clone https://github.com/getcloudless/example-vault.git
+sverch@local:$ cp -r example-apache/* example-vault/
 cp: overwrite 'example-vault/README.md'? y
-$ cd example-vault/
-$ git checkout -b initial-apache-copy
-$ git add .
-$ git commit
-$ git push origin initial-apache-copy 
+sverch@local:$ cd example-vault/
+sverch@local:$ git checkout -b initial-apache-copy
+sverch@local:$ git add .
+sverch@local:$ git commit
+sverch@local:$ git push origin initial-apache-copy
 ```
 
 You can find that pull request
@@ -134,32 +134,28 @@ Now, we install cloudless using the [Pipfile](https://github.com/pypa/pipfile)
 that comes with the repo:
 
 ```shell
-$ pipenv install
+sverch@local:$ pipenv install
 Installing -e git+https://github.com/getcloudless/cloudless@master#egg=cloudless...
 ...
-$ pipenv shell
-$ which cldls
+sverch@local:$ pipenv shell
+sverch@local:$ which cldls
 ```
 
 And finally, we can create and log in to the server we are going to use for
 development:
 
 ```shell
-$ cldls service-test deploy service_test_configuration.yml
-
+sverch@local:$ cldls service-test deploy service_test_configuration.yml
 ...
-
 Deploy complete!
 To log in, run:
 ssh -i /home/sverch/projects/example-vault/.cloudless/id_rsa_test cloudless_service_test@35.237.47.21
-$ ssh -i /home/sverch/projects/example-vault/.cloudless/id_rsa_test cloudless_service_test@35.237.47.21
-
+sverch@local:$ ssh -i /home/sverch/projects/example-vault/.cloudless/id_rsa_test cloudless_service_test@35.237.47.21
 ...
-
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-cloudless_service_test@test-network-ahcwqxezbk-test-service-vhhjzhzyph-0:~$ 
+sverch@remote:$
 ```
 
 ### Vault Installation
@@ -173,18 +169,18 @@ package signature.  See [here](https://www.hashicorp.com/security.html) for
 documentation on how to do this and how to find Hashicorp's keys.
 
 ```shell
-$ gpg --keyserver keys.gnupg.net --recv-key 0x51852D87348FFC4C
+sverch@remote:$ gpg --keyserver keys.gnupg.net --recv-key 0x51852D87348FFC4C
 ...
 gpg: key 348FFC4C: public key "HashiCorp Security <security@hashicorp.com>" imported
 ...
-$ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_linux_amd64.zip
-$ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS
-$ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS.sig
-$ gpg --verify vault_0.11.2_SHA256SUMS.sig vault_0.11.2_SHA256SUMS
+sverch@remote:$ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_linux_amd64.zip
+sverch@remote:$ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS
+sverch@remote:$ curl -Os https://releases.hashicorp.com/vault/0.11.2/vault_0.11.2_SHA256SUMS.sig
+sverch@remote:$ gpg --verify vault_0.11.2_SHA256SUMS.sig vault_0.11.2_SHA256SUMS
 ...
 gpg: Good signature from "HashiCorp Security <security@hashicorp.com>"
 ...
-$ shasum -a 256 -c vault_0.11.2_SHA256SUMS
+sverch@remote:$ shasum -a 256 -c vault_0.11.2_SHA256SUMS
 ...
 vault_0.11.2_linux_amd64.zip: OK
 ...
@@ -193,11 +189,11 @@ vault_0.11.2_linux_amd64.zip: OK
 Now we can unzip the package and make sure it works!
 
 ```shell
-$ sudo apt-get -y install unzip
-$ unzip vault_0.11.2_linux_amd64.zip 
+sverch@remote:$ sudo apt-get -y install unzip
+sverch@remote:$ unzip vault_0.11.2_linux_amd64.zip
 Archive:  vault_0.11.2_linux_amd64.zip
-  inflating: vault                   
-$ ./vault --help
+  inflating: vault
+sverch@remote:$ ./vault --help
 Usage: vault <command> [args]
 ...
 ```
@@ -210,7 +206,7 @@ example we are using the
 backend:
 
 ```shell
-$ cat <<EOF >| vault.hcl
+sverch@remote:$ cat <<EOF >| vault.hcl
 storage "file" {
   path = "/var/vault/data"
 }
@@ -219,8 +215,8 @@ listener "tcp" {
  address     = "127.0.0.1:8200"
  tls_disable = 1
 }
-$ sudo mkdir -p /var/vault/data
-$ sudo ./vault server -config=vault.hcl
+sverch@remote:$ sudo mkdir -p /var/vault/data
+sverch@remote:$ sudo ./vault server -config=vault.hcl
 ...
 ==> Vault server started! Log data will stream in below:
 ```
@@ -272,7 +268,7 @@ def verify(self, network, service, setup_info):
 Now, run the `check` step to run that verifier and see if everything is working:
 
 ```shell
-$ cldls service-test check service_test_configuration.yml
+sverch@local:$ cldls service-test check service_test_configuration.yml
 ...
 INFO:cloudless.util:Verify exception: HTTPConnectionPool(host='35.237.47.21', port=8200): Max retries exceeded with url: /v1/secret/foo (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f36de803080>: Failed to establish a new connection: [Errno 111] Connection refused',))
 ```
@@ -281,12 +277,12 @@ Well, looks like we have a problem.  Maybe it's a firewall issue?  Let's check
 our routes:
 
 ```shell
-$ cldls paths list
+sverch@local:$ cldls paths list
 ...
 external:0.0.0.0/0 -(22)-> test-network-ahcwqxezbk:test-service-vhhjzhzyph
 external:33.33.33.33/32 -(8200)-> test-network-ahcwqxezbk:test-service-vhhjzhzyph
 external:33.33.33.33/32 -(8201)-> test-network-ahcwqxezbk:test-service-vhhjzhzyph
-$ curl ipinfo.io/ip
+sverch@local:$ curl ipinfo.io/ip
 33.33.33.33
 ```
 
@@ -295,13 +291,13 @@ port `8200`.  Let's try a sanity check and run the `nc` command to listen on
 port `8200` on the server instead of Vault:
 
 ```shell
-$ nc -l 8200
+sverch@remote:$ nc -l 8200
 ```
 
 Now, from the local machine:
 
 ```shell
-$ curl 35.237.47.21:8200
+sverch@local:$ curl 35.237.47.21:8200
 ```
 
 And on the server, we see:
@@ -326,7 +322,7 @@ retrospect is obvious) and `0.0.0.0` means to bind all interfaces.  Changing
 that in the configuration causes the check to yield this error:
 
 ```shell
-$ cldls service-test check service_test_configuration.yml 
+sverch@local:$ cldls service-test check service_test_configuration.yml
 ...
 INFO:cloudless.util:Attempt number: 0
 INFO:cloudless.util:Verify exception: Vault is sealed
@@ -358,7 +354,7 @@ for now.
 Now when we run the `check` command, the verify succeeds!
 
 ```shell
-$ cldls service-test check service_test_configuration.yml
+sverch@local:$ cldls service-test check service_test_configuration.yml
 ...
 INFO:cloudless.util:Verify successful!
 ...
@@ -379,7 +375,7 @@ take a first pass at putting all this into a startup script.  I'm going to be
 extremely lazy and run:
 
 ```shell
-$ ssh -i /home/sverch/projects/example-vault/.cloudless/id_rsa_test cloudless_service_test@35.237.47.21 cat .bash_history > setup_vault.sh
+sverch@local:$ ssh -i /home/sverch/projects/example-vault/.cloudless/id_rsa_test cloudless_service_test@35.237.47.21 cat .bash_history > setup_vault.sh
 ```
 
 To make the test framework ssh keys work, I have to add this to the beginning of
@@ -403,14 +399,14 @@ Now, after a lot of editing/removing unnecessary lines where I made mistakes or
 typos, I can run this to remove my crufty test service:
 
 ```shell
-$ cldls service-test cleanup service_test_configuration.yml
+sverch@local:$ cldls service-test cleanup service_test_configuration.yml
 ```
 
 And run this to see if the startup script that I just wrote works:
 
 ```shell
-$ cldls service-test deploy service_test_configuration.yml
-$ cldls service-test check service_test_configuration.yml
+sverch@local:$ cldls service-test deploy service_test_configuration.yml
+sverch@local:$ cldls service-test check service_test_configuration.yml
 ```
 
 I had a small typo where I had a `$ cat` command instead of just `cat`, but I
@@ -420,7 +416,7 @@ Now that I'm more confident everything is working, do the full run for good
 measure (just runs all the above commands in order):
 
 ```shell
-$ cldls service-test run service_test_configuration.yml
+sverch@local:$ cldls service-test run service_test_configuration.yml
 ...
 Full test run complete!
 ```
@@ -428,7 +424,7 @@ Full test run complete!
 And let's try it on AWS:
 
 ```shell
-$ cldls --profile aws service-test run service_test_configuration.yml
+sverch@local:$ cldls --profile aws service-test run service_test_configuration.yml
 ...
 Full test run complete!
 ```

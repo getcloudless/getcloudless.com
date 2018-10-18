@@ -29,33 +29,30 @@ configure consul according to the Hashicorp docs. You can follow that work in
 
 So now, I'll deploy the test service:
 
-```
-$ cldls service-test deploy service_test_configuration.yml 
+```shell
+sverch@local:$ cldls service-test deploy service_test_configuration.yml
 Service test group with provider: gce
 ...
 Deploy complete!
 To log in, run:
 ssh -i /home/sverch/projects/example-consul/.cloudless/id_rsa_test cloudless_service_test@35.237.102.128
-$ ssh -i /home/sverch/projects/example-consul/.cloudless/id_rsa_test cloudless_service_test@35.237.102.128
+sverch@local:$ ssh -i /home/sverch/projects/example-consul/.cloudless/id_rsa_test cloudless_service_test@35.237.102.128
 ...
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-cloudless_service_test@test-network-dtzwouskir-test-service-ouwovhutcy-0:~$ 
+sverch@remote:$
 ```
 
 Great, we have our service!  Let's check if the Consul set up actually worked:
 
-```
-$ cat /var/log/consul.log 
+```shell
+sverch@remote:$ cat /var/log/consul.log
 Usage: consul [--version] [--help] <command> [<args>]
 ```
 
 Ok, not a big surprise, considering I was running this blindly.  I think I'm
 missing the `agent` subcommand, so let's try that:
 
-```
-$ sudo /opt/consul/consul agent -server -bootstrap-expect=1 -data-dir=/var/consul/data/
+```shell
+sverch@remote:$ sudo /opt/consul/consul agent -server -bootstrap-expect=1 -data-dir=/var/consul/data/
 ...
     2018/10/15 01:00:53 [INFO] raft: Election won. Tally: 1
     2018/10/15 01:00:53 [INFO] raft: Node at 10.0.0.2:8300 [Leader] entering Leader state
@@ -73,8 +70,8 @@ Now that we're here, let's add some regression tests. I'm going to use the
 First, I realized that I forgot to open up Consul port 8300 in the fixture, so
 let's just do that manually for now:
 
-```
-$ cldls paths alow_network_block test-network-dtzwouskir test-service-ouwovhutcy 0.0.0.0/0 8500
+```shell
+sverch@local:$ cldls paths alow_network_block test-network-dtzwouskir test-service-ouwovhutcy 0.0.0.0/0 8500
 Paths group with provider: gce
 ...
 Added path from 0.0.0.0/0 to test-service-ouwovhutcy in network test-network-dtzwouskir for port 8500
@@ -82,28 +79,21 @@ Added path from 0.0.0.0/0 to test-service-ouwovhutcy in network test-network-dtz
 
 So now let's open up ipython and try to connect:
 
-```
-$ ipython
-Python 3.6.6 (default, Jul 19 2018, 14:25:17) 
-Type 'copyright', 'credits' or 'license' for more information
-IPython 6.5.0 -- An enhanced Interactive Python. Type '?' for help.
-
+```shell
+sverch@local:$ ipython
 In [1]: import consul
-
 In [2]: c = consul.Consul("35.237.102.128")
-
 In [3]: c.kv.put('foo', 'bar')
-
 ...
 ConnectionError: HTTPConnectionPool(host='35.237.102.128', port=8500): Max retries exceeded with url: /v1/kv/foo (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f665484d7f0>: Failed to establish a new connection: [Errno 111] Connection refused',))
 ```
 
 Well, that's unfortunate. Let's use the same `nc` trick we used in [part 1]({%
 post_url 2018-10-03-cloudless-on-cloudless %}) to see if the server is even
-getting the connection:
+getting the connection, and try to connect with the python library:
 
-```
-$ nc -l 8500
+```shell
+sverch@remote:$ nc -l 8500
 PUT /v1/kv/foo HTTP/1.1
 Host: 35.237.102.128:8500
 User-Agent: python-requests/2.19.1
@@ -117,15 +107,14 @@ bar
 
 So the server is receiving the request, which means Consul isn't accepting the
 connection. It's probably not binding to all addresses, just like we found in
-the Vault setup.
-
-Sure enough, there's a
-[`-client`](https://www.consul.io/docs/agent/options.html#_client) option that
-controls which addresses the server will bind the client facing interfaces to,
-including the http interface. So now let's rerun Consul with that option:
+the [Vault setup]({% post_url 2018-10-03-cloudless-on-cloudless %}). Sure
+enough, [there's a `-client`
+option](https://www.consul.io/docs/agent/options.html#_client) that controls
+which addresses the server will bind to. So now let's rerun Consul with that
+option, passing `0.0.0.0` to bind all addresses:
 
 ```shell
-$ sudo /opt/consul/consul agent -server -bootstrap-expect=1 -data-dir=/var/consul/data/ -client "0.0.0.0"
+sverch@remote:$ sudo /opt/consul/consul agent -server -bootstrap-expect=1 -data-dir=/var/consul/data/ -client "0.0.0.0"
 ```
 
 Now, trying to connect from ipython:
@@ -133,7 +122,6 @@ Now, trying to connect from ipython:
 ```python
 In [8]: c.kv.put('foo', 'bar')
 Out[8]: True
-
 In [9]: c.kv.get('foo')
 Out[9]:
 ('45',
@@ -145,11 +133,11 @@ Out[9]:
   'ModifyIndex': 45})
 ```
 
-Great!  Next let's add regression tests and do the full run!
+Great!  Next let's add a regression test and do the full run!
 
-## Regression Tests
+## Regression Testing
 
-We'll add regression tests to our python test fixture just like we did in the
+We'll add a regression test to our python test fixture just like we did in the
 Vault setup, except this time with the Consul client library:
 
 ```python
@@ -173,7 +161,7 @@ def verify(self, network, service, setup_info):
 Now let's run it against the Consul service we just started:
 
 ```shell
-$ cldls service-test check service_test_configuration.yml 
+sverch@local:$ cldls service-test check service_test_configuration.yml
 Service test group with provider: gce
 ...
 Check complete!
@@ -184,7 +172,7 @@ I'm very suspicious that it worked the first time. Let's try running it when
 Consul is stopped:
 
 ```shell
-$ cldls service-test check service_test_configuration.yml 
+sverch@local:$ cldls service-test check service_test_configuration.yml
 Service test group with provider: gce
 ...
 INFO:cloudless.util:Attempt number: 0
@@ -196,7 +184,7 @@ good. So at this point we're basically done! Let's copy the consul command to
 the startup script and run the full create/test/destroy cycle:
 
 ```
-$ cldls service-test run service_test_configuration.yml 
+sverch@local:$ cldls service-test run service_test_configuration.yml
 Service test group with provider: gce
 ...
 INFO:cloudless.util:Attempt number: 0
@@ -217,7 +205,7 @@ for both. I can test this with this command because my `aws` profile is set up
 to run against my AWS account:
 
 ```
-$ cldls --profile aws service-test run service_test_configuration.yml
+sverch@local:$ cldls --profile aws service-test run service_test_configuration.yml
 ```
 
 Check back for part 2, where I'll use this to create the web servers and finish
