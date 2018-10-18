@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deploying getcloudless.com on Cloudless (Part 2)"
-date:   2018-10-07 00:30:00 -0400
+date:   2018-10-18 00:30:00 -0400
 categories: cloudless production
 ---
 This is part two of deploying
