@@ -612,7 +612,8 @@ python library to create an integration test to make sure this thing hooks up
 correctly with Datadog.
 
 I did some minor debugging and ran the final test run, so now we're done!  The
-pull request for this part is [here]().
+pull request for this part is
+[here](https://github.com/getcloudless/example-static-site/pull/7).
 
 ## Coming Up Next
 
