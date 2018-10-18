@@ -183,7 +183,7 @@ Ok, so the test does actually fail if Consul isn't working properly, that's
 good. So at this point we're basically done! Let's copy the consul command to
 the startup script and run the full create/test/destroy cycle:
 
-```
+```shell
 sverch@local:$ cldls service-test run service_test_configuration.yml
 Service test group with provider: gce
 ...
@@ -204,7 +204,7 @@ Remember, this automatically works on both AWS and GCE because it's the same API
 for both. I can test this with this command because my `aws` profile is set up
 to run against my AWS account:
 
-```
+```shell
 sverch@local:$ cldls --profile aws service-test run service_test_configuration.yml
 ```
 

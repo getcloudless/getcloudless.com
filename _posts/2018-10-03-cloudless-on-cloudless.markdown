@@ -337,7 +337,7 @@ capability](https://hvac.readthedocs.io/en/latest/usage/system_backend.html?high
 
 Let's add a simplified version of those code examples to our verify step:
 
-```
+```python
 shares = 1
 threshold = 1
 result = client.initialize(shares, threshold)

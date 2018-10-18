@@ -155,7 +155,7 @@ of the service without changing the configuration itself.
 
 In this setup, our startup script block will look like this:
 
-```
+```yaml
 initialization:
   - path: "static_site_startup_script.sh"
     vars:
@@ -173,7 +173,7 @@ will be required by our setup.
 They will be passed as template variables to jinja2, which will template out the
 startup script. Just to get started, let's add this to our startup script:
 
-```
+```shell
 #! /bin/bash
 
 {% raw %}
@@ -214,7 +214,7 @@ request](https://github.com/getcloudless/example-static-site/pull/2).
 
 If you read the first two posts, this is starting to become familiar:
 
-```
+```shell
 sverch@local:$ cldls service-test deploy service_test_configuration.yml
 Service test group with provider: gce
 ...
@@ -229,7 +229,7 @@ ssh -i /home/sverch/projects/example-static-site/.cloudless/id_rsa_test cloudles
 One difference here is you can see that the consul service was automatically
 created. Let's see if the web server was able to pull the dummy key from Consul:
 
-```
+```shell
 sverch@local:$ ssh -i /home/sverch/projects/example-static-site/.cloudless/id_rsa_test cloudless_service_test@35.237.3.172
 sverch@remote:$ cat /tmp/dummy_key.txt
 sverch@remote:$
@@ -237,7 +237,7 @@ sverch@remote:$
 
 No luck, but let's see if the python script is there:
 
-```
+```shell
 sverch@remote:$ cat /tmp/fetch_key.py
 import consul
 consul_client = consul.Consul("10.0.0.2")
@@ -254,7 +254,7 @@ Alright, looks like a simple missing parentheses. After fixing that and a few
 issues involving using `pip` instead of `pip3` everything worked, and running
 the check command shows success:
 
-```
+```shell
 cldls service-test check service_test_configuration.yml
 ...
 INFO:cloudless.util:Verify successful!
@@ -274,20 +274,20 @@ this already.
 
 First, let's install nginx:
 
-```
+```shell
 sverch@remote:$ sudo apt-get install nginx
 ```
 
 And from another terminal make sure we can reach it from the public IP:
 
-```
+```shell
 sverch@local:$ curl --silent 35.237.3.172 | grep "Thank you"
 <p><em>Thank you for using nginx.</em></p>
 ```
 
 Now, let's do all the Jekyll setup:
 
-```
+```shell
 sverch@remote:$ sudo apt-get install git
 sverch@remote:$ git clone https://github.com/getcloudless/getcloudless.com.git
 sverch@remote:$ sudo apt-get install ruby ruby-dev build-essential
@@ -313,14 +313,14 @@ through the normal installation of Jekyll, which you can find
 
 But now, we're serving Cloudless!
 
-```
+```shell
 sverch@local:$ curl --silent 35.237.3.172 | grep "<title>"
     <title>Cloudless</title>
 ```
 
 Before we go any further, let's add this to our regression test:
 
-```
+```shell
 def verify(self, network, service, setup_info):
     """
     Given the network name and the service name of the service under test,
@@ -340,7 +340,7 @@ def verify(self, network, service, setup_info):
 
 And check it:
 
-```
+```shell
 sverch@local:$ cldls service-test check service_test_configuration.yml
 ...
 Check complete!
@@ -350,7 +350,7 @@ Check complete!
 Now I'll just add all the above configuration to the startup script, and try to
 run the full deploy/test cycle:
 
-```
+```shell
 sverch@local:$ cldls service-test cleanup service_test_configuration.yml
 sverch@local:$ cldls service-test run service_test_configuration.yml
 ...
@@ -378,7 +378,7 @@ documentation](https://sslmate.com/help/cmdline/automation), I created a
 `.sslmate` configuration file with `api_key` and `api_endpoint` set to the
 sandbox credentials and ran this on my local machine:
 
-```
+```shell
 sverch@local:$ sslmate --batch buy --no-wait --email admin@getcloudless.com getcloudless.com
 Generating private key... Done.
 Generating CSR... Done.
@@ -398,7 +398,7 @@ Certificate with chain: (not yet issued - will be getcloudless.com.chained.crt)
 I never got an email, but the certificates are authorized, which is probably
 just a feature of the sandbox:
 
-```
+```shell
 sverch@local:$ sslmate download getcloudless.com
 The certificate for getcloudless.com has been downloaded.
 
@@ -410,7 +410,7 @@ Certificate with chain: getcloudless.com.chained.crt
 
 All right! Let's check out the certificates:
 
-```
+```shell
 sverch@local:$ openssl x509 -text -noout -in getcloudless.com.crt  | grep Sandbox
         Issuer: C = US, O = SSLMate, CN = SSLMate 2015 Sandbox Intermediate CA 2
         Subject: OU = SSLMate Sandbox (Untrusted), OU = Domain Control Validated, OU = PositiveSSL, CN = getcloudless.com
@@ -506,7 +506,7 @@ I won't show all the nginx configuration here (you can find it in the [github
 project](https://github.com/getcloudless/example-static-site)), but the meat of
 the sslmate setup looks like:
 
-```
+```shell
 {% raw %}
 {% if use_sslmate %}
 # Install sslmate certificate download script
