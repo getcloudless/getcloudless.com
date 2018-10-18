@@ -5,15 +5,17 @@ date:   2018-10-18 00:30:00 -0400
 categories: cloudless production
 ---
 This is part two of deploying
-[https://getcloudless.com](https://getcloudless.com) using Cloudless. In [part
-1.5]({% post_url 2018-10-14-cloudless-on-cloudless-1.5 %}), we set up a simple
-Consul server without TLS/SSL (no encryption in transit) or high availability
-(only a single node).
+[https://getcloudless.com](https://getcloudless.com) using Cloudless. In this
+post we will set up the web servers with https and monitoring that can pull a
+Jekyll based site from github.
 
-Whil that's is not the most secure or resilient deployment, for the bare minimum
-setup that we're trying to go for, it's enough. It's not enough to just say that
-though, so I'll give a short justification as to why _for this particular case_
-I'm not going to worry about these right now.
+In [part 1.5]({% post_url 2018-10-14-cloudless-on-cloudless-1.5 %}), we set up a
+simple Consul server without TLS/SSL (no encryption in transit) or high
+availability (only a single node). While that's is not the most secure or
+resilient deployment, for the bare minimum setup that we're trying to go for,
+it's enough. It's not enough to just say that though, so I'll give a short
+justification as to why _for this particular case_ I'm not going to worry about
+these right now.
 
 Remember from [part 1]({% post_url 2018-10-03-cloudless-on-cloudless %}) that
 the overall architecture is one Consul server to store our API keys and multiple
