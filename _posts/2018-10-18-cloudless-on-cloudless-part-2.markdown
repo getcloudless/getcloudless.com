@@ -230,7 +230,7 @@ One difference here is you can see that the consul service was automatically
 created. Let's see if the web server was able to pull the dummy key from Consul:
 
 ```
-ssh -i /home/sverch/projects/example-static-site/.cloudless/id_rsa_test cloudless_service_test@35.237.3.172
+sverch@local:$ ssh -i /home/sverch/projects/example-static-site/.cloudless/id_rsa_test cloudless_service_test@35.237.3.172
 sverch@remote:$ cat /tmp/dummy_key.txt
 sverch@remote:$
 ```
