@@ -1,0 +1,6 @@
+[submodule "deployment/example-consul"]
+	path = deployment/example-consul
+	url = git@github.com:getcloudless/example-consul.git
+[submodule "deployment/example-static-site"]
+	path = deployment/example-static-site
+	url = git@github.com:getcloudless/example-static-site.git
