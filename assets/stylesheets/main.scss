@@ -117,6 +117,7 @@ body {
     box-shadow: 0 1px 2px 1px $masthead-shadow-color;
     color: $topnav-text;
     font-size: 16px;
+    margin: 5px;
     outline: none;
     padding: 0 6px;
     position: relative;
@@ -350,6 +351,12 @@ $grid-container-border: #000;
   .entry-content {
     width: 100%;
   }
+}
+
+.post-img-centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // MailChimp Form Embed Code - Classic - 12/17/2015 v10.7

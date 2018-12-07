@@ -14,7 +14,9 @@ configuration management tool you choose</a>.
     pitch_title="Truly Portable Infrastructure"
     pitch_subtitle="Declarative infrastructure that's actually reusable"
     pitch_cta_url="https://docs.getcloudless.com/#quick-start"
-    pitch_cta_message="Get Started" %}
+    pitch_cta_message="Get Started"
+    pitch_cta2_url="/cloudless/production/2018/12/07/cloudless-on-cloudless-3.html"
+    pitch_cta2_message="See It In Action" %}
 
 {% include intro-grid.html
     section_1_header="Testable"
