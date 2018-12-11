@@ -7,15 +7,15 @@ You should install the python dependencies first.  This project uses
 [pipenv](https://pipenv.readthedocs.io/en/latest/):
 
 ```shell
-pipenv shell
-pipenv install
+$ pipenv shell
+$ pipenv install
 ```
 
 First, deploy Consul.  This will store our secrets:
 
 ```shell
-cldls network create cloudless network.yml
-cldls service create --count 1 cloudless consul-1 example-consul/blueprint.yml
+$ cldls network create cloudless network.yml
+$ cldls service create --count 1 cloudless consul-1 example-consul/blueprint.yml
 ```
 
 Then, upload the necessary secrets to Consul.  This assumes you have the
@@ -35,20 +35,22 @@ following environment variables set:
 Once you have these set, run:
 
 ```shell
-cldls paths allow_network_block cloudless consul-1 $(curl --silent ipinfo.io/ip) 8500
-CONSUL_IP=$(cldls service get cloudless consul-1 | grep public_ip | awk -F: '{print $2}')
-python example-static-site/helpers/setup_consul.py $CONSUL_IP getcloudless.com both
-cldls paths revoke_network_block cloudless consul-1 $(curl --silent ipinfo.io/ip) 8500
+$ cldls paths allow_network_block cloudless consul-1 $(curl --silent ipinfo.io/ip) 8500
+$ CONSUL_IP=$(cldls service get cloudless consul-1 | grep public_ip | awk -F: '{print $2}')
+$ python example-static-site/helpers/setup_consul.py $CONSUL_IP getcloudless.com both
+$ cldls paths revoke_network_block cloudless consul-1 $(curl --silent ipinfo.io/ip) 8500
 ```
 
-Now, run the deploy script to deploy the web service.  The first argument is the
-name of the consul service, and the second argument is the name to use for the
-web service:
+Now, run the deploy script to deploy the web service.  This has a lot hard coded
+in it for now, and mostly just calls a helper in the module:
 
 ```shell
-python deploy_web.py consul-1 web-1
-cldls service get cloudless web-1
+$ ./deploy.sh
 ```
 
-This is a python script that deploys the web service, sets up the proper paths,
-and runs the health checks to make sure the service is logging and responding.
+This calls a python script that deploys the web service, sets up the proper
+paths, and runs the health checks to make sure the service is logging and
+responding.
+
+Finally, update your DNS if you use NS1 by running
+`example-static-site/helpers/update_dns.py`.
