@@ -3,9 +3,7 @@ t:
   email: "Contact"
 
 navigation_pages:
-  - alpha.md
   - blog.md
-  - team.md
 
 google_fonts:
   - name: "Roboto"
