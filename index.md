@@ -53,7 +53,3 @@ configuration management tool you choose</a>.
 Check out the [Blog](/blog) to learn more about Cloudless and how to use it, or
 just go straight to the [Docs]({{ site.docs_url }}) and [Github
 Repo](https://github.com/{{ site.github_username }}) to get started!
-
-## Subscribe For Updates!
-
-{% include signup.html %}
