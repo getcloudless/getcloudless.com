@@ -5,6 +5,16 @@
 layout: home
 title: "Cloudless"
 ---
+
+{% capture abandon_blurb %}
+NOTE: I'm abandoning this project.  See <a href="{% post_url
+2020-02-21-abandoning-cloudless-v1 %}">this post for more details</a>.
+{% endcapture %}
+
+{% include abandon.html
+    pitch_subtitle=abandon_blurb %}
+<hr>
+
 {% capture dev_workflow_blurb %}
 Cloudless has no opinions on what you install on your servers, so <a href="{%
 post_url 2018-09-24-the-cloudless-development-workflow %}">you can use any
