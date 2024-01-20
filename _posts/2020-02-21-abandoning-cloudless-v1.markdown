@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Abandoning Cloudless V1"
+title:  "Cloudless V1 Lessons Learned"
 date:   2020-02-21 17:00:00 -0400
 categories: cloudless
 ---

@@ -7,8 +7,7 @@ title: "Cloudless"
 ---
 
 {% capture abandon_blurb %}
-NOTE: I'm abandoning this project.  See <a href="{% post_url
-2020-02-21-abandoning-cloudless-v1 %}">this post for more details</a>.
+NOTE: This is a research project and should not be used in production, see <a href="{% post_url 2020-02-21-abandoning-cloudless-v1 %}">this post for the findings.</a>.
 {% endcapture %}
 
 {% include abandon.html
